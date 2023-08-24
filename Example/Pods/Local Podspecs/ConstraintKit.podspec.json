@@ -1,0 +1,22 @@
+{
+  "name": "ConstraintKit",
+  "version": "0.1.0",
+  "summary": "A short description of ConstraintKit.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/WavinDev/ConstraintKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "WavinDev": "eshwavin@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/WavinDev/ConstraintKit.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "ConstraintKit/Classes/**/*"
+}

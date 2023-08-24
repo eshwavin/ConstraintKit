@@ -1,0 +1,16 @@
+PODS:
+  - ConstraintKit (0.1.0)
+
+DEPENDENCIES:
+  - ConstraintKit (from `../`)
+
+EXTERNAL SOURCES:
+  ConstraintKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ConstraintKit: 05c6a79cf1163dd8086ea2e9f7351fc8acd62117
+
+PODFILE CHECKSUM: 6f5fb5699a2fec8b6db94f9ae438eb8c9bd1c6fa
+
+COCOAPODS: 1.12.1

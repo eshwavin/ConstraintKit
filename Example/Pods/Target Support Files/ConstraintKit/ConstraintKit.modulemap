@@ -1,0 +1,6 @@
+framework module ConstraintKit {
+  umbrella header "ConstraintKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
