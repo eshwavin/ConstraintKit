@@ -8,7 +8,7 @@
 import UIKit
 
 extension UILayoutGuide: Constrainable {
-    public var container: Constrainable? {
+    public var container: UIView? {
         return owningView
     }
     

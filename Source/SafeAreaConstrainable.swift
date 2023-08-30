@@ -9,5 +9,4 @@ import UIKit
 
 public protocol SafeAreaConstrainable: Constrainable {
     var safeAreaLayoutGuide: UILayoutGuide { get }
-    var translatesAutoresizingMaskIntoConstraints: Bool { get set }
 }

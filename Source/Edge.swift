@@ -7,77 +7,93 @@
 
 import Foundation
 
-protocol ConstrainableEdge { }
+public protocol ConstrainableEdge {
+    var spacing: CGFloat { get }
+    var rawValue: String { get }
+}
 
 public enum Edge: ConstrainableEdge {
-    case safeAreaTop(spacing: CGFloat)
     case top(spacing: CGFloat)
-    case safeAreaBottom(spacing: CGFloat)
     case bottom(spacing: CGFloat)
-    case safeAreaLeading(spacing: CGFloat)
     case leading(spacing: CGFloat)
-    case safeAreaTrailing(spacing: CGFloat)
     case trailing(spacing: CGFloat)
     
-    case greaterThanSafeAreaTop(spacing: CGFloat)
     case greaterThanTop(spacing: CGFloat)
-    case lessThanSafeAreaBottom(spacing: CGFloat)
     case lessThanBottom(spacing: CGFloat)
-    case greaterThanSafeAreaLeading(spacing: CGFloat)
     case greaterThanLeading(spacing: CGFloat)
-    case lessThanSafeAreaTrailing(spacing: CGFloat)
     case lessThanTrailing(spacing: CGFloat)
     
     public var rawValue: String {
         switch self {
-        case .safeAreaTop:
-            return "safeAreaTop"
         case .top:
             return "top"
-        case .safeAreaBottom:
-            return "safeAreaBottom"
         case .bottom:
             return "bottom"
-        case .safeAreaLeading:
-            return "safeAreaLeading"
         case .leading:
             return "leading"
-        case .safeAreaTrailing:
-            return "safeAreaTrailing"
         case .trailing:
             return "trailing"
             
-        case .greaterThanSafeAreaTop:
-            return "greaterThanSafeAreaTop"
         case .greaterThanTop:
             return "greaterThanTop"
-        case .lessThanSafeAreaBottom:
-            return "lessThanSafeAreaBottom"
         case .lessThanBottom:
             return "lessThanBottom"
-        case .greaterThanSafeAreaLeading:
-            return "greaterThanSafeAreaLeading"
         case .greaterThanLeading:
             return "greaterThanLeading"
-        case .lessThanSafeAreaTrailing:
-            return "lessThanSafeAreaTrailing"
         case .lessThanTrailing:
             return "lessThanTrailing"
         }
     }
     
-    var isSafeAreaEdge: Bool {
+    public var spacing: CGFloat {
         switch self {
-        case .safeAreaTop, .safeAreaBottom, .safeAreaLeading, .safeAreaTrailing:
-            return true
-        case .greaterThanSafeAreaTop, .lessThanSafeAreaBottom, .greaterThanSafeAreaLeading, .lessThanSafeAreaTrailing:
-            return true
-        default:
-            return false
+        case .top(let spacing),
+                .bottom(let spacing),
+                .leading(let spacing),
+                .trailing(let spacing),
+                .greaterThanTop(let spacing),
+                .lessThanBottom(let spacing),
+                .greaterThanLeading(let spacing),
+                .lessThanTrailing(let spacing):
+            return spacing
         }
     }
 }
 
 public enum SafeAreaEdge: ConstrainableEdge {
     case safeAreaTop(spacing: CGFloat)
+    case safeAreaBottom(spacing: CGFloat)
+    case safeAreaLeading(spacing: CGFloat)
+    case safeAreaTrailing(spacing: CGFloat)
+    
+    case greaterThanSafeAreaTop(spacing: CGFloat)
+    case lessThanSafeAreaBottom(spacing: CGFloat)
+    case greaterThanSafeAreaLeading(spacing: CGFloat)
+    case lessThanSafeAreaTrailing(spacing: CGFloat)
+    
+    public var rawValue: String {
+        switch self {
+        case .safeAreaTop:
+            return "safeAreaTop"
+        case .safeAreaBottom:
+            return "safeAreaBottom"
+        case .safeAreaLeading:
+            return "safeAreaLeading"
+        case .safeAreaTrailing:
+            return "safeAreaTrailing"
+            
+        case .greaterThanSafeAreaTop:
+            return "greaterThanSafeAreaTop"
+        case .lessThanSafeAreaBottom:
+            return "lessThanSafeAreaBottom"
+        case .greaterThanSafeAreaLeading:
+            return "greaterThanSafeAreaLeading"
+        case .lessThanSafeAreaTrailing:
+            return "lessThanSafeAreaTrailing"
+        }
+    }
+    
+    public var spacing: CGFloat {
+        return 0
+    }
 }

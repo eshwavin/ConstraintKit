@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11213CAE2A9EDD7700C55E4C /* Constrainable+AllEdges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11213CAD2A9EDD7700C55E4C /* Constrainable+AllEdges.swift */; };
 		1192F8982A9D9C3C004846C6 /* UIView+Constrainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1192F8972A9D9C3C004846C6 /* UIView+Constrainable.swift */; };
 		1192F89A2A9D9C45004846C6 /* UILayoutGuide+Constrainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1192F8992A9D9C45004846C6 /* UILayoutGuide+Constrainable.swift */; };
 		1192F89C2A9D9EA2004846C6 /* SafeAreaConstrainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1192F89B2A9D9EA2004846C6 /* SafeAreaConstrainable.swift */; };
@@ -44,6 +45,7 @@
 		03BEE19ECA56F799459A0B4DD9CB283A /* Pods-ConstraintKit_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ConstraintKit_Tests-umbrella.h"; sourceTree = "<group>"; };
 		0440B997553819B5A86ADBBD7ADBFF5F /* Pods-ConstraintKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ConstraintKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		064F9DAD3182045B7726895FFF7D805E /* ConstraintKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ConstraintKit.modulemap; sourceTree = "<group>"; };
+		11213CAD2A9EDD7700C55E4C /* Constrainable+AllEdges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constrainable+AllEdges.swift"; sourceTree = "<group>"; };
 		1192F8972A9D9C3C004846C6 /* UIView+Constrainable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constrainable.swift"; sourceTree = "<group>"; };
 		1192F8992A9D9C45004846C6 /* UILayoutGuide+Constrainable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILayoutGuide+Constrainable.swift"; sourceTree = "<group>"; };
 		1192F89B2A9D9EA2004846C6 /* SafeAreaConstrainable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaConstrainable.swift; sourceTree = "<group>"; };
@@ -145,9 +147,10 @@
 			children = (
 				11EB9CD92A98133500593E34 /* Edge.swift */,
 				11EB9CDB2A98135C00593E34 /* Constrainable.swift */,
+				1192F89B2A9D9EA2004846C6 /* SafeAreaConstrainable.swift */,
+				11213CAD2A9EDD7700C55E4C /* Constrainable+AllEdges.swift */,
 				1192F8972A9D9C3C004846C6 /* UIView+Constrainable.swift */,
 				1192F8992A9D9C45004846C6 /* UILayoutGuide+Constrainable.swift */,
-				1192F89B2A9D9EA2004846C6 /* SafeAreaConstrainable.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 				11EB9CDA2A98133500593E34 /* Edge.swift in Sources */,
 				1192F89A2A9D9C45004846C6 /* UILayoutGuide+Constrainable.swift in Sources */,
 				1192F8982A9D9C3C004846C6 /* UIView+Constrainable.swift in Sources */,
+				11213CAE2A9EDD7700C55E4C /* Constrainable+AllEdges.swift in Sources */,
 				7A8E14EC740F85123B10CE581191F6E6 /* ConstraintKit-dummy.m in Sources */,
 				1192F89C2A9D9EA2004846C6 /* SafeAreaConstrainable.swift in Sources */,
 			);

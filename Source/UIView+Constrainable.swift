@@ -7,13 +7,9 @@
 
 import UIKit
 
-extension UIView: Constrainable {
-    public var container: Constrainable? {
+extension UIView: SafeAreaConstrainable {
+    public var container: UIView? {
         return superview
-    }
-    
-    public var optionalSafeAreaLayoutGuide: UILayoutGuide? {
-        return safeAreaLayoutGuide
     }
 }
 
