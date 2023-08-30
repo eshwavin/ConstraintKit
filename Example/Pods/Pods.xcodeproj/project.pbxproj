@@ -7,11 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		11213CAE2A9EDD7700C55E4C /* Constrainable+AllEdges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11213CAD2A9EDD7700C55E4C /* Constrainable+AllEdges.swift */; };
+		11213CAE2A9EDD7700C55E4C /* Constrainable+Edges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11213CAD2A9EDD7700C55E4C /* Constrainable+Edges.swift */; };
+		11213CB02A9EE98A00C55E4C /* Constrainable+XAxisEdges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11213CAF2A9EE98A00C55E4C /* Constrainable+XAxisEdges.swift */; };
+		11213CB22A9EE99400C55E4C /* Constrainable+YAxisEdges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11213CB12A9EE99400C55E4C /* Constrainable+YAxisEdges.swift */; };
+		11213CB42A9EE99C00C55E4C /* Constrainable+Center.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11213CB32A9EE99C00C55E4C /* Constrainable+Center.swift */; };
+		11213CB62A9EE9A400C55E4C /* Constrainable+Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11213CB52A9EE9A400C55E4C /* Constrainable+Dimensions.swift */; };
+		11213CB82A9EEAD900C55E4C /* Constrainable+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11213CB72A9EEAD900C55E4C /* Constrainable+Helpers.swift */; };
 		1192F8982A9D9C3C004846C6 /* UIView+Constrainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1192F8972A9D9C3C004846C6 /* UIView+Constrainable.swift */; };
 		1192F89A2A9D9C45004846C6 /* UILayoutGuide+Constrainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1192F8992A9D9C45004846C6 /* UILayoutGuide+Constrainable.swift */; };
 		1192F89C2A9D9EA2004846C6 /* SafeAreaConstrainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1192F89B2A9D9EA2004846C6 /* SafeAreaConstrainable.swift */; };
-		11EB9CDA2A98133500593E34 /* Edge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EB9CD92A98133500593E34 /* Edge.swift */; };
+		11EB9CDA2A98133500593E34 /* ConstrainableEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EB9CD92A98133500593E34 /* ConstrainableEdge.swift */; };
 		11EB9CDC2A98135C00593E34 /* Constrainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EB9CDB2A98135C00593E34 /* Constrainable.swift */; };
 		405D71247FED1C815386DE2C1E32C9C2 /* ConstraintKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E0E5FBD70F672A682B3654F31E5A6853 /* ConstraintKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		50E30DB50D27FDD4A9EE273CE5A6FF53 /* Pods-ConstraintKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3106116F63136D2453D6A4A2079B60B7 /* Pods-ConstraintKit_Example-dummy.m */; };
@@ -45,11 +50,16 @@
 		03BEE19ECA56F799459A0B4DD9CB283A /* Pods-ConstraintKit_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ConstraintKit_Tests-umbrella.h"; sourceTree = "<group>"; };
 		0440B997553819B5A86ADBBD7ADBFF5F /* Pods-ConstraintKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ConstraintKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		064F9DAD3182045B7726895FFF7D805E /* ConstraintKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ConstraintKit.modulemap; sourceTree = "<group>"; };
-		11213CAD2A9EDD7700C55E4C /* Constrainable+AllEdges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constrainable+AllEdges.swift"; sourceTree = "<group>"; };
+		11213CAD2A9EDD7700C55E4C /* Constrainable+Edges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constrainable+Edges.swift"; sourceTree = "<group>"; };
+		11213CAF2A9EE98A00C55E4C /* Constrainable+XAxisEdges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constrainable+XAxisEdges.swift"; sourceTree = "<group>"; };
+		11213CB12A9EE99400C55E4C /* Constrainable+YAxisEdges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constrainable+YAxisEdges.swift"; sourceTree = "<group>"; };
+		11213CB32A9EE99C00C55E4C /* Constrainable+Center.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constrainable+Center.swift"; sourceTree = "<group>"; };
+		11213CB52A9EE9A400C55E4C /* Constrainable+Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constrainable+Dimensions.swift"; sourceTree = "<group>"; };
+		11213CB72A9EEAD900C55E4C /* Constrainable+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constrainable+Helpers.swift"; sourceTree = "<group>"; };
 		1192F8972A9D9C3C004846C6 /* UIView+Constrainable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constrainable.swift"; sourceTree = "<group>"; };
 		1192F8992A9D9C45004846C6 /* UILayoutGuide+Constrainable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILayoutGuide+Constrainable.swift"; sourceTree = "<group>"; };
 		1192F89B2A9D9EA2004846C6 /* SafeAreaConstrainable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaConstrainable.swift; sourceTree = "<group>"; };
-		11EB9CD92A98133500593E34 /* Edge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edge.swift; sourceTree = "<group>"; };
+		11EB9CD92A98133500593E34 /* ConstrainableEdge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstrainableEdge.swift; sourceTree = "<group>"; };
 		11EB9CDB2A98135C00593E34 /* Constrainable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constrainable.swift; sourceTree = "<group>"; };
 		1B997132DB5207FD91AAA8654AF4183D /* Pods-ConstraintKit_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ConstraintKit_Tests-Info.plist"; sourceTree = "<group>"; };
 		2A66F6B642C57D21DD6593106800DFBA /* ConstraintKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = ConstraintKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -145,10 +155,15 @@
 		11EB9CD82A98131F00593E34 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				11EB9CD92A98133500593E34 /* Edge.swift */,
+				11EB9CD92A98133500593E34 /* ConstrainableEdge.swift */,
 				11EB9CDB2A98135C00593E34 /* Constrainable.swift */,
 				1192F89B2A9D9EA2004846C6 /* SafeAreaConstrainable.swift */,
-				11213CAD2A9EDD7700C55E4C /* Constrainable+AllEdges.swift */,
+				11213CAD2A9EDD7700C55E4C /* Constrainable+Edges.swift */,
+				11213CB72A9EEAD900C55E4C /* Constrainable+Helpers.swift */,
+				11213CAF2A9EE98A00C55E4C /* Constrainable+XAxisEdges.swift */,
+				11213CB12A9EE99400C55E4C /* Constrainable+YAxisEdges.swift */,
+				11213CB32A9EE99C00C55E4C /* Constrainable+Center.swift */,
+				11213CB52A9EE9A400C55E4C /* Constrainable+Dimensions.swift */,
 				1192F8972A9D9C3C004846C6 /* UIView+Constrainable.swift */,
 				1192F8992A9D9C45004846C6 /* UILayoutGuide+Constrainable.swift */,
 			);
@@ -404,12 +419,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				11EB9CDC2A98135C00593E34 /* Constrainable.swift in Sources */,
-				11EB9CDA2A98133500593E34 /* Edge.swift in Sources */,
+				11EB9CDA2A98133500593E34 /* ConstrainableEdge.swift in Sources */,
 				1192F89A2A9D9C45004846C6 /* UILayoutGuide+Constrainable.swift in Sources */,
 				1192F8982A9D9C3C004846C6 /* UIView+Constrainable.swift in Sources */,
-				11213CAE2A9EDD7700C55E4C /* Constrainable+AllEdges.swift in Sources */,
+				11213CAE2A9EDD7700C55E4C /* Constrainable+Edges.swift in Sources */,
+				11213CB82A9EEAD900C55E4C /* Constrainable+Helpers.swift in Sources */,
+				11213CB02A9EE98A00C55E4C /* Constrainable+XAxisEdges.swift in Sources */,
+				11213CB42A9EE99C00C55E4C /* Constrainable+Center.swift in Sources */,
 				7A8E14EC740F85123B10CE581191F6E6 /* ConstraintKit-dummy.m in Sources */,
+				11213CB22A9EE99400C55E4C /* Constrainable+YAxisEdges.swift in Sources */,
 				1192F89C2A9D9EA2004846C6 /* SafeAreaConstrainable.swift in Sources */,
+				11213CB62A9EE9A400C55E4C /* Constrainable+Dimensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

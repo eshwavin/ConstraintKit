@@ -7,10 +7,7 @@
 
 import Foundation
 
-public protocol ConstrainableEdge {
-    var spacing: CGFloat { get }
-    var rawValue: String { get }
-}
+public protocol ConstrainableEdge { }
 
 public enum Edge: ConstrainableEdge {
     case top(spacing: CGFloat)
@@ -42,20 +39,6 @@ public enum Edge: ConstrainableEdge {
             return "greaterThanLeading"
         case .lessThanTrailing:
             return "lessThanTrailing"
-        }
-    }
-    
-    public var spacing: CGFloat {
-        switch self {
-        case .top(let spacing),
-                .bottom(let spacing),
-                .leading(let spacing),
-                .trailing(let spacing),
-                .greaterThanTop(let spacing),
-                .lessThanBottom(let spacing),
-                .greaterThanLeading(let spacing),
-                .lessThanTrailing(let spacing):
-            return spacing
         }
     }
 }
@@ -91,9 +74,5 @@ public enum SafeAreaEdge: ConstrainableEdge {
         case .lessThanSafeAreaTrailing:
             return "lessThanSafeAreaTrailing"
         }
-    }
-    
-    public var spacing: CGFloat {
-        return 0
     }
 }
