@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+enum CenterConstraintKeys {
+    static let centerX = "centerX"
+    static let centerY = "centerY"
+}

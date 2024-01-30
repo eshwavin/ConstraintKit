@@ -7,13 +7,18 @@
 
 import Foundation
 
-public protocol ConstrainableEdge { }
+public protocol ConstrainableEdge {
+    var rawValue: String { get }
+}
 
 public enum Edge: ConstrainableEdge {
     case top(spacing: CGFloat)
     case bottom(spacing: CGFloat)
     case leading(spacing: CGFloat)
     case trailing(spacing: CGFloat)
+    
+    case left(spacing: CGFloat)
+    case right(spacing: CGFloat)
     
     case greaterThanTop(spacing: CGFloat)
     case lessThanBottom(spacing: CGFloat)
@@ -30,6 +35,11 @@ public enum Edge: ConstrainableEdge {
             return "leading"
         case .trailing:
             return "trailing"
+            
+        case .left:
+            return "left"
+        case .right:
+            return "right"
             
         case .greaterThanTop:
             return "greaterThanTop"
@@ -49,6 +59,9 @@ public enum SafeAreaEdge: ConstrainableEdge {
     case safeAreaLeading(spacing: CGFloat)
     case safeAreaTrailing(spacing: CGFloat)
     
+    case safeAreaLeft(spacing: CGFloat)
+    case safeAreaRight(spacing: CGFloat)
+    
     case greaterThanSafeAreaTop(spacing: CGFloat)
     case lessThanSafeAreaBottom(spacing: CGFloat)
     case greaterThanSafeAreaLeading(spacing: CGFloat)
@@ -64,6 +77,11 @@ public enum SafeAreaEdge: ConstrainableEdge {
             return "safeAreaLeading"
         case .safeAreaTrailing:
             return "safeAreaTrailing"
+            
+        case .safeAreaLeft:
+            return "safeAreaLeft"
+        case .safeAreaRight:
+            return "safeAreaRight"
             
         case .greaterThanSafeAreaTop:
             return "greaterThanSafeAreaTop"

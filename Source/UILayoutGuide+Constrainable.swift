@@ -11,17 +11,4 @@ extension UILayoutGuide: Constrainable {
     public var container: UIView? {
         return owningView
     }
-    
-    public var translatesAutoresizingMaskIntoConstraints: Bool {
-        get {
-            return false
-        }
-        set {
-            return
-        }
-    }
-    
-    public var optionalSafeAreaLayoutGuide: UILayoutGuide? {
-        return nil
-    }
 }

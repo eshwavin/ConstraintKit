@@ -55,29 +55,64 @@ public extension Constrainable {
             
             switch edge {
             case .safeAreaTop(let spacing):
-                constraint = topAnchor.constraint(equalTo: constraintToConstrainable.safeAreaLayoutGuide.topAnchor, constant: spacing)
+                constraint = topAnchor.constraint(
+                    equalTo: constraintToConstrainable.safeAreaLayoutGuide.topAnchor,
+                    constant: spacing
+                )
                 
             case .safeAreaBottom(let spacing):
-                constraint = bottomAnchor.constraint(equalTo: constraintToConstrainable.safeAreaLayoutGuide.bottomAnchor, constant: spacing)
+                constraint = bottomAnchor.constraint(
+                    equalTo: constraintToConstrainable.safeAreaLayoutGuide.bottomAnchor,
+                    constant: spacing
+                )
                 
             case .safeAreaLeading(let spacing):
-                constraint = leadingAnchor.constraint(equalTo: constraintToConstrainable.safeAreaLayoutGuide.leadingAnchor, constant: spacing)
+                constraint = leadingAnchor.constraint(
+                    equalTo: constraintToConstrainable.safeAreaLayoutGuide.leadingAnchor,
+                    constant: spacing
+                )
                 
             case .safeAreaTrailing(let spacing):
-                constraint = trailingAnchor.constraint(equalTo: constraintToConstrainable.safeAreaLayoutGuide.trailingAnchor, constant: spacing)
-
+                constraint = trailingAnchor.constraint(
+                    equalTo: constraintToConstrainable.safeAreaLayoutGuide.trailingAnchor,
+                    constant: spacing
+                )
                 
+            case .safeAreaLeft(let spacing):
+                constraint = leftAnchor.constraint(
+                    equalTo: constraintToConstrainable.safeAreaLayoutGuide.leftAnchor,
+                    constant: spacing
+                )
+                
+            case .safeAreaRight(let spacing):
+                constraint = rightAnchor.constraint(
+                    equalTo: constraintToConstrainable.safeAreaLayoutGuide.rightAnchor,
+                    constant: spacing
+                )
+
             case .greaterThanSafeAreaTop(let spacing):
-                constraint = topAnchor.constraint(greaterThanOrEqualTo: constraintToConstrainable.safeAreaLayoutGuide.topAnchor, constant: spacing)
+                constraint = topAnchor.constraint(
+                    greaterThanOrEqualTo: constraintToConstrainable.safeAreaLayoutGuide.topAnchor,
+                    constant: spacing
+                )
                 
             case .lessThanSafeAreaBottom(let spacing):
-                constraint = bottomAnchor.constraint(lessThanOrEqualTo: constraintToConstrainable.safeAreaLayoutGuide.bottomAnchor, constant: spacing)
+                constraint = bottomAnchor.constraint(
+                    lessThanOrEqualTo: constraintToConstrainable.safeAreaLayoutGuide.bottomAnchor,
+                    constant: spacing
+                )
                 
             case .greaterThanSafeAreaLeading(let spacing):
-                constraint = leadingAnchor.constraint(greaterThanOrEqualTo: constraintToConstrainable.safeAreaLayoutGuide.leadingAnchor, constant: spacing)
+                constraint = leadingAnchor.constraint(
+                    greaterThanOrEqualTo: constraintToConstrainable.safeAreaLayoutGuide.leadingAnchor,
+                    constant: spacing
+                )
                 
             case .lessThanSafeAreaTrailing(let spacing):
-                constraint = trailingAnchor.constraint(lessThanOrEqualTo: constraintToConstrainable.safeAreaLayoutGuide.trailingAnchor, constant: spacing)
+                constraint = trailingAnchor.constraint(
+                    lessThanOrEqualTo: constraintToConstrainable.safeAreaLayoutGuide.trailingAnchor,
+                    constant: spacing
+                )
                 
             }
             
@@ -112,36 +147,72 @@ public extension Constrainable {
                 
                 // absolute: top
             case .top(let spacing):
-                constraint = topAnchor.constraint(equalTo: constraintToConstrainable.topAnchor, constant: spacing)
+                constraint = topAnchor.constraint(
+                    equalTo: constraintToConstrainable.topAnchor,
+                    constant: spacing
+                )
                 
                 // absolute: bottom
             case .bottom(let spacing):
-                constraint = bottomAnchor.constraint(equalTo: constraintToConstrainable.bottomAnchor, constant: spacing)
+                constraint = bottomAnchor.constraint(
+                    equalTo: constraintToConstrainable.bottomAnchor,
+                    constant: spacing
+                )
                 
                 // absolute: leading
             case .leading(let spacing):
-                constraint = leadingAnchor.constraint(equalTo: constraintToConstrainable.leadingAnchor, constant: spacing)
+                constraint = leadingAnchor.constraint(
+                    equalTo: constraintToConstrainable.leadingAnchor,
+                    constant: spacing
+                )
                 
                 // absolute: trailing
             case .trailing(let spacing):
-                constraint = trailingAnchor.constraint(equalTo: constraintToConstrainable.trailingAnchor, constant: spacing)
+                constraint = trailingAnchor.constraint(
+                    equalTo: constraintToConstrainable.trailingAnchor,
+                    constant: spacing
+                )
+                
+            case .left(let spacing):
+                constraint = leftAnchor.constraint(
+                    equalTo: constraintToConstrainable.leftAnchor,
+                    constant: spacing
+                )
+                
+            case .right(let spacing):
+                constraint = rightAnchor.constraint(
+                    equalTo: constraintToConstrainable.rightAnchor,
+                    constant: spacing
+                )
                 
                 // relative: top
             case .greaterThanTop(let spacing):
-                constraint = topAnchor.constraint(greaterThanOrEqualTo: constraintToConstrainable.topAnchor, constant: spacing)
+                constraint = topAnchor.constraint(
+                    greaterThanOrEqualTo: constraintToConstrainable.topAnchor,
+                    constant: spacing
+                )
                 
                 // relative: bottom
             case .lessThanBottom(let spacing):
-                constraint = bottomAnchor.constraint(lessThanOrEqualTo: constraintToConstrainable.bottomAnchor, constant: spacing)
+                constraint = bottomAnchor.constraint(
+                    lessThanOrEqualTo: constraintToConstrainable.bottomAnchor,
+                    constant: spacing
+                )
                 
                 
                 // relative: leading
             case .greaterThanLeading(let spacing):
-                constraint = leadingAnchor.constraint(greaterThanOrEqualTo: constraintToConstrainable.leadingAnchor, constant: spacing)
+                constraint = leadingAnchor.constraint(
+                    greaterThanOrEqualTo: constraintToConstrainable.leadingAnchor,
+                    constant: spacing
+                )
                 
                 // relative: trailing
             case .lessThanTrailing(let spacing):
-                constraint = trailingAnchor.constraint(lessThanOrEqualTo: constraintToConstrainable.trailingAnchor, constant: spacing)
+                constraint = trailingAnchor.constraint(
+                    lessThanOrEqualTo: constraintToConstrainable.trailingAnchor,
+                    constant: spacing
+                )
             }
             
             constraint.isActive = true

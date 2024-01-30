@@ -43,8 +43,8 @@ public extension Constrainable {
         let centerYConstraint = centerY(to: view)
         
         return [
-            "centerX": centerXConstraint,
-            "centerY": centerYConstraint
+            CenterConstraintKeys.centerX: centerXConstraint,
+            CenterConstraintKeys.centerY: centerYConstraint
         ]
     }
 }

@@ -18,6 +18,7 @@
 		1192F89C2A9D9EA2004846C6 /* SafeAreaConstrainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1192F89B2A9D9EA2004846C6 /* SafeAreaConstrainable.swift */; };
 		11EB9CDA2A98133500593E34 /* ConstrainableEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EB9CD92A98133500593E34 /* ConstrainableEdge.swift */; };
 		11EB9CDC2A98135C00593E34 /* Constrainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EB9CDB2A98135C00593E34 /* Constrainable.swift */; };
+		11EC78592B699E7D00F2E095 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EC78582B699E7D00F2E095 /* Constants.swift */; };
 		405D71247FED1C815386DE2C1E32C9C2 /* ConstraintKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E0E5FBD70F672A682B3654F31E5A6853 /* ConstraintKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		50E30DB50D27FDD4A9EE273CE5A6FF53 /* Pods-ConstraintKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3106116F63136D2453D6A4A2079B60B7 /* Pods-ConstraintKit_Example-dummy.m */; };
 		74E47EA79F3A7569565B6FF2ABD1E2A4 /* Pods-ConstraintKit_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 03BEE19ECA56F799459A0B4DD9CB283A /* Pods-ConstraintKit_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -61,6 +62,7 @@
 		1192F89B2A9D9EA2004846C6 /* SafeAreaConstrainable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaConstrainable.swift; sourceTree = "<group>"; };
 		11EB9CD92A98133500593E34 /* ConstrainableEdge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstrainableEdge.swift; sourceTree = "<group>"; };
 		11EB9CDB2A98135C00593E34 /* Constrainable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constrainable.swift; sourceTree = "<group>"; };
+		11EC78582B699E7D00F2E095 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1B997132DB5207FD91AAA8654AF4183D /* Pods-ConstraintKit_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ConstraintKit_Tests-Info.plist"; sourceTree = "<group>"; };
 		2A66F6B642C57D21DD6593106800DFBA /* ConstraintKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = ConstraintKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		2E63E3AE5352E50C9CAC5CE4DE6D3E73 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				11213CB52A9EE9A400C55E4C /* Constrainable+Dimensions.swift */,
 				1192F8972A9D9C3C004846C6 /* UIView+Constrainable.swift */,
 				1192F8992A9D9C45004846C6 /* UILayoutGuide+Constrainable.swift */,
+				11EC78582B699E7D00F2E095 /* Constants.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				11213CAE2A9EDD7700C55E4C /* Constrainable+Edges.swift in Sources */,
 				11213CB82A9EEAD900C55E4C /* Constrainable+Helpers.swift in Sources */,
 				11213CB02A9EE98A00C55E4C /* Constrainable+XAxisEdges.swift in Sources */,
+				11EC78592B699E7D00F2E095 /* Constants.swift in Sources */,
 				11213CB42A9EE99C00C55E4C /* Constrainable+Center.swift in Sources */,
 				7A8E14EC740F85123B10CE581191F6E6 /* ConstraintKit-dummy.m in Sources */,
 				11213CB22A9EE99400C55E4C /* Constrainable+YAxisEdges.swift in Sources */,
