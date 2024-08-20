@@ -5,7 +5,7 @@
 //  Created by Srivinayak Chaitanya Eshwa on 29/08/23.
 //
 
-import Foundation
+import UIKit
 
 // MARK: - All Edges
 public extension Constrainable {
