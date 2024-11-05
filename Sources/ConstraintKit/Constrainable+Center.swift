@@ -38,7 +38,7 @@ public extension Constrainable {
         
     }
     
-    @discardableResult func center(to view: UIView? = nil) -> [String: NSLayoutConstraint] {
+    @discardableResult func center(to view: Constrainable? = nil) -> [String: NSLayoutConstraint] {
         let centerXConstraint = centerX(to: view)
         let centerYConstraint = centerY(to: view)
         
