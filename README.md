@@ -60,7 +60,6 @@ childView.pinTop(to: containerView, withSpacing: 8)
 
 // Pin childView to the bottom edge of containerView with safe area consideration
 childView.pinBottomToSafeArea(of: containerView, withSpacing: 20)
-
 ```
 
 ### Adding Multiple Constraints Together
@@ -77,13 +76,11 @@ childView.pinAllEdgesSafely()
 
 // Pin multiple edges to superview
 childView.pin(edges: .leading(spacing: 5), .trailing(spacing: 5))
-
 ```
 
 ### Centering 
 
 ``` swift
-
 // center in X direction to superview
 someView.centerX()
 // center in Y direction to superview
@@ -94,34 +91,29 @@ otherView.center()
 
 // center to some other view with offset
 someView.center(to: otherView, withOffset: 10)
-
 ```
 
 ### Use the same function for UIViews and UILayoutGuides
 
 ```swift
-
 someView.pin(edges: .top(spacing: 0), .bottom(spacing: 5))
 
 someLayoutGuide.pin(edges: .top(spacing: 0), .bottom(spacing: 5))
-
 ```
 
 ### More advanced usage
 
-```
+```swift
 // Pinning a view to the top and at least some distance from the leading of another view
 someView.pin(edges: .top(spacing: 5), .greaterThanLeading(spacing: 5), to: otherView))
-
 ```
 
 ### Accessing the activated constraints
 
-```
+```swift
 let constraints = someView.pin(egdes: .top(spacing: 5), .leading(spacing: 5))
 
 let topConstraint = constraints[Edge.top.rawValue]
-
 ```
 
 ### You cannot use SafeAreaEdges for UILayoutGuides
