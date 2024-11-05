@@ -140,10 +140,10 @@ This protocol extends the Constrainable protocol for objects that can reference 
 ### Edge and SafeAreaEdge
 These enums represent the various edges that can be used when pinning views. 
 
-License
+## License
 
 This project is licensed under the MIT License. See the LICENSE file for more information.
 
-Contribution
+## Contribution
 
-Contributions are welcome! Feel free to open issues or submit pull requests for enhancements and bug fixes.
+Contributions are welcome! Feel free to open issues, submit pull requests for enhancements and bug fixes, or improve documentation.
