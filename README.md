@@ -1,6 +1,6 @@
 # ConstraintKit
 
-ConstraintKit is a lightweight and flexible library designed to simplify Auto Layout constraints in UIKit with a declarative approach. By providing a set of extensions for UIView and UILayoutGuide, ConstraintKit streamlines the process of creating and managing constraints, making your layout code cleaner, more readable, and closer to natural language.  
+ConstraintKit is a lightweight and flexible library designed to simplify adding Auto Layout constraints in UIKit with a declarative approach. By providing a set of extensions for UIView and UILayoutGuide, ConstraintKit streamlines the process of creating and managing constraints, making your layout code cleaner, more readable, and closer to natural language.  
 
 ## Features
 
@@ -17,7 +17,7 @@ To integrate ConstraintKit into your project using Swift Package Manager, add th
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/eshwavin/ConstraintKit.git", from: "0.1.0")
+    .package(url: "https://github.com/eshwavin/ConstraintKit.git", from: "0.2.0")
 ]
 ```
 
