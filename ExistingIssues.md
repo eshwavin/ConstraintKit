@@ -12,27 +12,15 @@ Renamed `withSpacing` → `withInset` in `pinAllEdges` and `pinAllEdgesSafely` t
 
 ---
 
-## 3. Force cast `as! SafeAreaConstrainable` 
+## ~~3. Force cast `as! SafeAreaConstrainable`~~ ✅ Resolved
 
-**File:** `Sources/ConstraintKit/Constrainable+Edges.swift:48`
-
-```swift
-let constraintToConstrainable: SafeAreaConstrainable = getConstrainable(for: safeAreaConstrainable) as! SafeAreaConstrainable
-```
-
-`getConstrainable` returns `Constrainable`. If `safeAreaConstrainable` is `nil` and the receiver's `container` is any type that conforms to `Constrainable` but not `SafeAreaConstrainable`, this crashes at runtime. The type system should enforce this at compile time.
+Added a `getConstrainable(for:SafeAreaConstrainable?) -> SafeAreaConstrainable` overload in `Constrainable+Helpers.swift`. Swift resolves the correct overload at compile time, removing the need for the force cast entirely.
 
 ---
 
-## 4. `fatalError` with poor diagnostic in `getConstrainable`
+## ~~4. `fatalError` with poor diagnostic in `getConstrainable`~~ ✅ Resolved
 
-**File:** `Sources/ConstraintKit/Constrainable+Helpers.swift:32`
-
-```swift
-fatalError("Both targetConstrainable and container are nil")
-```
-
-Crashes with no indication of which view or call site caused the problem. A view not yet added to a hierarchy is a common setup state, and hitting this gives no actionable debugging context.
+Replaced the opaque message with an actionable one: explains that the view has no superview and tells the developer either to add it to a hierarchy first or pass an explicit target.
 
 ---
 

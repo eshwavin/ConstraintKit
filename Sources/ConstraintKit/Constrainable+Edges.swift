@@ -45,7 +45,7 @@ public extension Constrainable {
     
     @discardableResult func pin(safeAreaEdges: [SafeAreaEdge], to safeAreaConstrainable: SafeAreaConstrainable? = nil) -> [String: NSLayoutConstraint] {
         var constraints = [String: NSLayoutConstraint]()
-        let constraintToConstrainable: SafeAreaConstrainable = getConstrainable(for: safeAreaConstrainable) as! SafeAreaConstrainable
+        let constraintToConstrainable: SafeAreaConstrainable = getConstrainable(for: safeAreaConstrainable)
         
         for edge in safeAreaEdges {
             

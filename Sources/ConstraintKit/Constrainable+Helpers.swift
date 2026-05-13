@@ -22,18 +22,19 @@ internal extension Constrainable {
 internal extension Constrainable {
     
     func getConstrainable(for targetConstrainable: Constrainable?) -> Constrainable {
-        let constraintToConstrainable: Constrainable
-        
-        if let targetConstrainable {
-            constraintToConstrainable = targetConstrainable
-        } else {
-            guard let container else {
-                fatalError("Both targetConstrainable and container are nil")
-            }
-            constraintToConstrainable = container
+        if let targetConstrainable { return targetConstrainable }
+        guard let container else {
+            fatalError("No target constrainable was provided and the view has no superview. Add the view to a hierarchy before calling pin methods, or pass an explicit target.")
         }
-        
-        return constraintToConstrainable
+        return container
+    }
+
+    func getConstrainable(for targetConstrainable: SafeAreaConstrainable?) -> SafeAreaConstrainable {
+        if let targetConstrainable { return targetConstrainable }
+        guard let container else {
+            fatalError("No target constrainable was provided and the view has no superview. Add the view to a hierarchy before calling pin methods, or pass an explicit target.")
+        }
+        return container
     }
     
 }
