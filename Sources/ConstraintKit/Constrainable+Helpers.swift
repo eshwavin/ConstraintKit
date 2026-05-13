@@ -36,11 +36,6 @@ internal extension Constrainable {
         return constraintToConstrainable
     }
     
-    func setTranslatesAutoresizingMaskIntoConstraintsToFalse() {
-        if let view = self as? UIView {
-            view.translatesAutoresizingMaskIntoConstraints = false
-        }
-    }
 }
 
 

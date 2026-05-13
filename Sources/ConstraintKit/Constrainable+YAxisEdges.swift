@@ -42,28 +42,24 @@ public extension Constrainable {
 public extension Constrainable {
     
     @discardableResult func pinTopToBottom(of constrainable: Constrainable, withSpacing spacing: CGFloat) -> NSLayoutConstraint {
-        setTranslatesAutoresizingMaskIntoConstraintsToFalse()
         let constraint = topAnchor.constraint(equalTo: constrainable.bottomAnchor, constant: spacing)
         constraint.isActive = true
         return constraint
     }
     
     @discardableResult func pinBottomToTop(of constrainable: Constrainable, withSpacing spacing: CGFloat) -> NSLayoutConstraint {
-        setTranslatesAutoresizingMaskIntoConstraintsToFalse()
         let constraint = bottomAnchor.constraint(equalTo: constrainable.topAnchor, constant: spacing)
         constraint.isActive = true
         return constraint
     }
     
     @discardableResult func pinTopToCenterY(of constrainable: Constrainable, withOffset offset: CGFloat) -> NSLayoutConstraint {
-        setTranslatesAutoresizingMaskIntoConstraintsToFalse()
         let constraint = topAnchor.constraint(equalTo: constrainable.centerYAnchor, constant: offset)
         constraint.isActive = true
         return constraint
     }
     
     @discardableResult func pinBottomToCenterY(of constrainable: Constrainable, withOffset offset: CGFloat) -> NSLayoutConstraint {
-        setTranslatesAutoresizingMaskIntoConstraintsToFalse()
         let constraint = bottomAnchor.constraint(equalTo: constrainable.centerYAnchor, constant: offset)
         constraint.isActive = true
         return constraint

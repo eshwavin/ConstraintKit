@@ -15,8 +15,6 @@ public extension Constrainable {
         let constraint: NSLayoutConstraint
         let constraintToConstrainable: Constrainable = getConstrainable(for: constrainable)
         
-        setTranslatesAutoresizingMaskIntoConstraintsToFalse()
-        
         constraint = centerXAnchor.constraint(equalTo: constraintToConstrainable.centerXAnchor, constant: offset)
         
         constraint.isActive = true
@@ -28,8 +26,6 @@ public extension Constrainable {
         
         let constraint: NSLayoutConstraint
         let constraintToConstrainable: Constrainable = getConstrainable(for: constrainable)
-        
-        setTranslatesAutoresizingMaskIntoConstraintsToFalse()
         
         constraint = centerYAnchor.constraint(equalTo: constraintToConstrainable.centerYAnchor, constant: offset)
         

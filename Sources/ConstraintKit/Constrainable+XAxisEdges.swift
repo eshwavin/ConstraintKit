@@ -58,7 +58,6 @@ public extension Constrainable {
     
     @discardableResult
     func pinLeadingToTrailing(of constrainable: Constrainable, withSpacing spacing: CGFloat) -> NSLayoutConstraint {
-        setTranslatesAutoresizingMaskIntoConstraintsToFalse()
         let constraint = leadingAnchor.constraint(equalTo: constrainable.trailingAnchor, constant: spacing)
         constraint.isActive = true
         return constraint
@@ -66,7 +65,6 @@ public extension Constrainable {
     
     @discardableResult
     func pinLeadingToCenterX(of constrainable: Constrainable, withOffset offset: CGFloat) -> NSLayoutConstraint {
-        setTranslatesAutoresizingMaskIntoConstraintsToFalse()
         let constraint = leadingAnchor.constraint(equalTo: constrainable.centerXAnchor, constant: offset)
         constraint.isActive = true
         return constraint
@@ -74,7 +72,6 @@ public extension Constrainable {
     
     @discardableResult
     func pinLeftToRight(of constrainable: Constrainable, withSpacing spacing: CGFloat) -> NSLayoutConstraint {
-        setTranslatesAutoresizingMaskIntoConstraintsToFalse()
         let constraint = leftAnchor.constraint(equalTo: constrainable.rightAnchor, constant: spacing)
         constraint.isActive = true
         return constraint
@@ -87,7 +84,6 @@ public extension Constrainable {
     
     @discardableResult
     func pinTrailingToLeading(of constrainable: Constrainable, withSpacing spacing: CGFloat) -> NSLayoutConstraint {
-        setTranslatesAutoresizingMaskIntoConstraintsToFalse()
         let constraint = trailingAnchor.constraint(equalTo: constrainable.leadingAnchor, constant: spacing)
         constraint.isActive = true
         return constraint
@@ -95,7 +91,6 @@ public extension Constrainable {
     
     @discardableResult 
     func pinTrailingToCenterX(of constrainable: Constrainable, withOffset offset: CGFloat) -> NSLayoutConstraint {
-        setTranslatesAutoresizingMaskIntoConstraintsToFalse()
         let constraint = trailingAnchor.constraint(equalTo: constrainable.centerXAnchor, constant: offset)
         constraint.isActive = true
         return constraint
@@ -103,7 +98,6 @@ public extension Constrainable {
     
     @discardableResult
     func pinRightToLeft(of constrainable: Constrainable, withSpacing spacing: CGFloat) -> NSLayoutConstraint {
-        setTranslatesAutoresizingMaskIntoConstraintsToFalse()
         let constraint = rightAnchor.constraint(equalTo: constrainable.leftAnchor, constant: spacing)
         constraint.isActive = true
         return constraint

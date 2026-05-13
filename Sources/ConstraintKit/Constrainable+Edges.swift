@@ -47,8 +47,6 @@ public extension Constrainable {
         var constraints = [String: NSLayoutConstraint]()
         let constraintToConstrainable: SafeAreaConstrainable = getConstrainable(for: safeAreaConstrainable) as! SafeAreaConstrainable
         
-        setTranslatesAutoresizingMaskIntoConstraintsToFalse()
-        
         for edge in safeAreaEdges {
             
             let constraint: NSLayoutConstraint
@@ -136,8 +134,6 @@ public extension Constrainable {
         
         var constraints = [String: NSLayoutConstraint]()
         let constraintToConstrainable: Constrainable = getConstrainable(for: constrainable)
-        
-        setTranslatesAutoresizingMaskIntoConstraintsToFalse()
         
         for edge in edges {
             
@@ -228,12 +224,12 @@ public extension Constrainable {
 // MARK: - All 4 Edges
 public extension Constrainable {
     
-    @discardableResult func pinAllEdgesSafely(to view: SafeAreaConstrainable? = nil, withSpacing spacing: CGFloat = 0) -> [String: NSLayoutConstraint] {
-        return pin(safeAreaEdges: .safeAreaTop(spacing: spacing), .safeAreaLeading(spacing: spacing), .safeAreaTrailing(spacing: -spacing), .safeAreaBottom(spacing: -spacing), to: view)
+    @discardableResult func pinAllEdgesSafely(to view: SafeAreaConstrainable? = nil, withInset inset: CGFloat = 0) -> [String: NSLayoutConstraint] {
+        return pin(safeAreaEdges: .safeAreaTop(spacing: inset), .safeAreaLeading(spacing: inset), .safeAreaTrailing(spacing: -inset), .safeAreaBottom(spacing: -inset), to: view)
     }
-    
-    @discardableResult func pinAllEdges(to view: Constrainable? = nil, withSpacing spacing: CGFloat = 0) -> [String: NSLayoutConstraint] {
-        return pin(edges: .top(spacing: spacing), .leading(spacing: spacing), .trailing(spacing: -spacing), .bottom(spacing: -spacing), to: view)
+
+    @discardableResult func pinAllEdges(to view: Constrainable? = nil, withInset inset: CGFloat = 0) -> [String: NSLayoutConstraint] {
+        return pin(edges: .top(spacing: inset), .leading(spacing: inset), .trailing(spacing: -inset), .bottom(spacing: -inset), to: view)
     }
     
 }
