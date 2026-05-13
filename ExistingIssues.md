@@ -48,6 +48,6 @@ Added iOS 14 platform declaration to `Package.swift`. Wrote 8 test files coverin
 
 ---
 
-## 9. No documentation on public API
+## ~~9. No documentation on public API~~ ✅ Resolved
 
-All public functions lack doc comments. The sign convention for trailing/bottom `withSpacing` parameters, the behaviour of `withInset` vs `withSpacing`, the dictionary keys returned by pin methods, and the requirement to call `prepareForAutoLayout()` before pinning are all implicit. Each public function should have a doc comment covering parameters, return value, and any non-obvious behaviour.
+Added `///` doc comments to all public types and functions, covering parameters, return values, and non-obvious behaviour (fallback target resolution, `withInset` sign negation, `withSpacing` pass-through, dictionary key types).

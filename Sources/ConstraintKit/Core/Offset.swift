@@ -7,6 +7,7 @@
 
 import CoreGraphics
 
+/// A two-dimensional offset used with centering methods.
 public struct Offset {
     public let x: CGFloat
     public let y: CGFloat

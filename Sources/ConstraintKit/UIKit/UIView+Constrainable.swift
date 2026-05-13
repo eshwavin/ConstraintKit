@@ -14,6 +14,10 @@ extension UIView: SafeAreaConstrainable {
 }
 
 public extension UIView {
+    /// Adds a view or layout guide to the receiver without requiring a type check at the call site.
+    ///
+    /// Calls `addSubview(_:)` for `UIView` instances and `addLayoutGuide(_:)` for `UILayoutGuide` instances.
+    /// - Parameter constrainable: The view or layout guide to add.
     func addConstrainable(_ constrainable: Constrainable) {
         if let view = constrainable as? UIView {
             addSubview(view)

@@ -9,6 +9,11 @@ import UIKit
 
 // MARK: - All Edges
 public extension Constrainable {
+    /// Pins a mixed array of `Edge` and `SafeAreaEdge` values in a single call.
+    /// - Parameters:
+    ///   - constrainableEdges: Any combination of `Edge` and `SafeAreaEdge` cases.
+    ///   - safeAreaConstrainable: The target. Defaults to the receiver's superview.
+    /// - Returns: A merged dictionary of activated constraints keyed by `Edge.Keys` and `SafeAreaEdge.Keys` values.
     @discardableResult
     func pin(constrainableEdges: [ConstrainableEdge], to safeAreaConstrainable: SafeAreaConstrainable? = nil) -> [String: NSLayoutConstraint] {
         var edges: [Edge] = []
@@ -32,6 +37,11 @@ public extension Constrainable {
         
     }
     
+    /// Pins any combination of `Edge` and `SafeAreaEdge` values in a single call.
+    /// - Parameters:
+    ///   - constrainableEdges: Any combination of `Edge` and `SafeAreaEdge` cases.
+    ///   - safeAreaConstrainable: The target. Defaults to the receiver's superview.
+    /// - Returns: A merged dictionary of activated constraints keyed by `Edge.Keys` and `SafeAreaEdge.Keys` values.
     @discardableResult
     func pin(constrainableEdges: ConstrainableEdge..., to safeAreaConstrainable: SafeAreaConstrainable? = nil) -> [String: NSLayoutConstraint] {
         return pin(constrainableEdges: constrainableEdges, to: safeAreaConstrainable)
@@ -41,11 +51,21 @@ public extension Constrainable {
 // MARK: - Safe Area Edges
 public extension Constrainable {
     
+    /// Pins the given safe-area edges to `safeAreaConstrainable`.
+    /// - Parameters:
+    ///   - safeAreaEdges: One or more `SafeAreaEdge` cases, each carrying a spacing constant.
+    ///   - safeAreaConstrainable: The target. Defaults to the receiver's superview.
+    /// - Returns: A dictionary of activated constraints keyed by `SafeAreaEdge.Keys`.
     @discardableResult
     func pin(safeAreaEdges: SafeAreaEdge..., to safeAreaConstrainable: SafeAreaConstrainable? = nil) -> [String: NSLayoutConstraint] {
         return pin(safeAreaEdges: safeAreaEdges, to: safeAreaConstrainable)
     }
     
+    /// Pins the given safe-area edges to `safeAreaConstrainable`.
+    /// - Parameters:
+    ///   - safeAreaEdges: An array of `SafeAreaEdge` cases, each carrying a spacing constant.
+    ///   - safeAreaConstrainable: The target. Defaults to the receiver's superview.
+    /// - Returns: A dictionary of activated constraints keyed by `SafeAreaEdge.Keys`.
     @discardableResult
     func pin(safeAreaEdges: [SafeAreaEdge], to safeAreaConstrainable: SafeAreaConstrainable? = nil) -> [String: NSLayoutConstraint] {
         var constraints = [String: NSLayoutConstraint]()
@@ -130,11 +150,21 @@ public extension Constrainable {
 // MARK: - Non-Safe Area Edges
 public extension Constrainable {
     
+    /// Pins the given edges to `constrainable`, using the spacing value embedded in each case.
+    /// - Parameters:
+    ///   - edges: One or more `Edge` cases, each carrying a spacing constant.
+    ///   - constrainable: The target. Defaults to the receiver's superview.
+    /// - Returns: A dictionary of activated constraints keyed by `Edge.Keys`.
     @discardableResult
     func pin(edges: Edge..., to constrainable: Constrainable? = nil) -> [String: NSLayoutConstraint] {
         return pin(edges: edges, to: constrainable)
     }
     
+    /// Pins the given edges to `constrainable`, using the spacing value embedded in each case.
+    /// - Parameters:
+    ///   - edges: An array of `Edge` cases, each carrying a spacing constant.
+    ///   - constrainable: The target. Defaults to the receiver's superview.
+    /// - Returns: A dictionary of activated constraints keyed by `Edge.Keys`.
     @discardableResult
     func pin(edges: [Edge], to constrainable: Constrainable? = nil) -> [String: NSLayoutConstraint] {
         
@@ -146,70 +176,51 @@ public extension Constrainable {
             let constraint: NSLayoutConstraint
             
             switch edge {
-                
-                // absolute: top
             case .top(let spacing):
                 constraint = topAnchor.constraint(
                     equalTo: constraintToConstrainable.topAnchor,
                     constant: spacing
                 )
-                
-                // absolute: bottom
             case .bottom(let spacing):
                 constraint = bottomAnchor.constraint(
                     equalTo: constraintToConstrainable.bottomAnchor,
                     constant: spacing
                 )
-                
-                // absolute: leading
             case .leading(let spacing):
                 constraint = leadingAnchor.constraint(
                     equalTo: constraintToConstrainable.leadingAnchor,
                     constant: spacing
                 )
-                
-                // absolute: trailing
             case .trailing(let spacing):
                 constraint = trailingAnchor.constraint(
                     equalTo: constraintToConstrainable.trailingAnchor,
                     constant: spacing
                 )
-                
             case .left(let spacing):
                 constraint = leftAnchor.constraint(
                     equalTo: constraintToConstrainable.leftAnchor,
                     constant: spacing
                 )
-                
             case .right(let spacing):
                 constraint = rightAnchor.constraint(
                     equalTo: constraintToConstrainable.rightAnchor,
                     constant: spacing
                 )
-                
-                // relative: top
             case .greaterThanTop(let spacing):
                 constraint = topAnchor.constraint(
                     greaterThanOrEqualTo: constraintToConstrainable.topAnchor,
                     constant: spacing
                 )
-                
-                // relative: bottom
             case .lessThanBottom(let spacing):
                 constraint = bottomAnchor.constraint(
                     lessThanOrEqualTo: constraintToConstrainable.bottomAnchor,
                     constant: spacing
                 )
-                
-                
-                // relative: leading
             case .greaterThanLeading(let spacing):
                 constraint = leadingAnchor.constraint(
                     greaterThanOrEqualTo: constraintToConstrainable.leadingAnchor,
                     constant: spacing
                 )
-                
-                // relative: trailing
             case .lessThanTrailing(let spacing):
                 constraint = trailingAnchor.constraint(
                     lessThanOrEqualTo: constraintToConstrainable.trailingAnchor,
@@ -230,11 +241,27 @@ public extension Constrainable {
 // MARK: - All 4 Edges
 public extension Constrainable {
     
+    /// Pins all four edges to the safe area of `view` with a uniform inset.
+    ///
+    /// Trailing and bottom constants are negated internally, so a positive `inset`
+    /// always shrinks the receiver inward from all sides.
+    /// - Parameters:
+    ///   - view: The target. Defaults to the receiver's superview.
+    ///   - inset: Positive value insets the receiver on all sides. Defaults to `0`.
+    /// - Returns: A dictionary of activated constraints keyed by `SafeAreaEdge.Keys`.
     @discardableResult
     func pinAllEdgesSafely(to view: SafeAreaConstrainable? = nil, withInset inset: CGFloat = 0) -> [String: NSLayoutConstraint] {
         return pin(safeAreaEdges: .safeAreaTop(spacing: inset), .safeAreaLeading(spacing: inset), .safeAreaTrailing(spacing: -inset), .safeAreaBottom(spacing: -inset), to: view)
     }
 
+    /// Pins all four edges to `view` with a uniform inset.
+    ///
+    /// Trailing and bottom constants are negated internally, so a positive `inset`
+    /// always shrinks the receiver inward from all sides.
+    /// - Parameters:
+    ///   - view: The target. Defaults to the receiver's superview.
+    ///   - inset: Positive value insets the receiver on all sides. Defaults to `0`.
+    /// - Returns: A dictionary of activated constraints keyed by `Edge.Keys`.
     @discardableResult
     func pinAllEdges(to view: Constrainable? = nil, withInset inset: CGFloat = 0) -> [String: NSLayoutConstraint] {
         return pin(edges: .top(spacing: inset), .leading(spacing: inset), .trailing(spacing: -inset), .bottom(spacing: -inset), to: view)

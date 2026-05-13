@@ -7,10 +7,16 @@
 
 import CoreGraphics
 
+/// A type that represents a single edge constraint, carrying its spacing constant.
 public protocol ConstrainableEdge {
     var rawValue: String { get }
 }
 
+/// A standard (non-safe-area) edge constraint.
+///
+/// Each case carries a `spacing` value that becomes the Auto Layout constant.
+/// The `rawValue` of each case matches the corresponding key in `Edge.Keys`,
+/// which is used to look up constraints in the dictionaries returned by `pin` methods.
 public enum Edge: ConstrainableEdge {
     case top(spacing: CGFloat)
     case bottom(spacing: CGFloat)
@@ -25,6 +31,7 @@ public enum Edge: ConstrainableEdge {
     case greaterThanLeading(spacing: CGFloat)
     case lessThanTrailing(spacing: CGFloat)
 
+    /// String keys for the constraint dictionaries returned by `pin(edges:to:)` and `pinAllEdges`.
     public enum Keys {
         public static let top = "top"
         public static let bottom = "bottom"
@@ -64,6 +71,11 @@ public enum Edge: ConstrainableEdge {
     }
 }
 
+/// A safe-area edge constraint.
+///
+/// Each case carries a `spacing` value that becomes the Auto Layout constant.
+/// The `rawValue` of each case matches the corresponding key in `SafeAreaEdge.Keys`,
+/// which is used to look up constraints in the dictionaries returned by `pin` methods.
 public enum SafeAreaEdge: ConstrainableEdge {
     case safeAreaTop(spacing: CGFloat)
     case safeAreaBottom(spacing: CGFloat)
@@ -78,6 +90,7 @@ public enum SafeAreaEdge: ConstrainableEdge {
     case greaterThanSafeAreaLeading(spacing: CGFloat)
     case lessThanSafeAreaTrailing(spacing: CGFloat)
 
+    /// String keys for the constraint dictionaries returned by `pin(safeAreaEdges:to:)` and `pinAllEdgesSafely`.
     public enum Keys {
         public static let safeAreaTop = "safeAreaTop"
         public static let safeAreaBottom = "safeAreaBottom"

@@ -7,6 +7,11 @@
 
 import UIKit
 
+/// The base layout protocol adopted by both `UIView` and `UILayoutGuide`.
+///
+/// When a constraint method's target parameter is `nil`, the receiver's `container`
+/// is used as the fallback — the superview for `UIView`, the owning view for `UILayoutGuide`.
+/// A `fatalError` is raised if no target is provided and `container` is `nil`.
 public protocol Constrainable: AnyObject {
     var container: UIView? { get }
     
