@@ -24,11 +24,9 @@ Replaced the opaque message with an actionable one: explains that the view has n
 
 ---
 
-## 5. `pinBottomToTop` sign is counter-intuitive
+## ~~5. `pinBottomToTop` sign is counter-intuitive~~ ✅ Resolved
 
-**File:** `Sources/ConstraintKit/Constrainable+YAxisEdges.swift:51`
-
-`pinTopToBottom(of:withSpacing:8)` produces a gap (intuitive). `pinBottomToTop(of:withSpacing:8)` causes the view to overlap the target by 8pt (counter-intuitive). Both parameters are named `withSpacing`, implying identical behaviour.
+Added `withInset` overloads to all six cross-edge methods (`pinTopToBottom`, `pinBottomToTop`, `pinLeadingToTrailing`, `pinTrailingToLeading`, `pinLeftToRight`, `pinRightToLeft`). The `withInset` variants always treat positive as a gap, negating internally where needed. The original `withSpacing` variants remain for callers who want raw constant control.
 
 ---
 

@@ -62,6 +62,13 @@ public extension Constrainable {
         constraint.isActive = true
         return constraint
     }
+
+    @discardableResult
+    func pinLeadingToTrailing(of constrainable: Constrainable, withInset inset: CGFloat) -> NSLayoutConstraint {
+        let constraint = leadingAnchor.constraint(equalTo: constrainable.trailingAnchor, constant: inset)
+        constraint.isActive = true
+        return constraint
+    }
     
     @discardableResult
     func pinLeadingToCenterX(of constrainable: Constrainable, withOffset offset: CGFloat) -> NSLayoutConstraint {
@@ -73,6 +80,13 @@ public extension Constrainable {
     @discardableResult
     func pinLeftToRight(of constrainable: Constrainable, withSpacing spacing: CGFloat) -> NSLayoutConstraint {
         let constraint = leftAnchor.constraint(equalTo: constrainable.rightAnchor, constant: spacing)
+        constraint.isActive = true
+        return constraint
+    }
+
+    @discardableResult
+    func pinLeftToRight(of constrainable: Constrainable, withInset inset: CGFloat) -> NSLayoutConstraint {
+        let constraint = leftAnchor.constraint(equalTo: constrainable.rightAnchor, constant: inset)
         constraint.isActive = true
         return constraint
     }
@@ -88,6 +102,13 @@ public extension Constrainable {
         constraint.isActive = true
         return constraint
     }
+
+    @discardableResult
+    func pinTrailingToLeading(of constrainable: Constrainable, withInset inset: CGFloat) -> NSLayoutConstraint {
+        let constraint = trailingAnchor.constraint(equalTo: constrainable.leadingAnchor, constant: -inset)
+        constraint.isActive = true
+        return constraint
+    }
     
     @discardableResult 
     func pinTrailingToCenterX(of constrainable: Constrainable, withOffset offset: CGFloat) -> NSLayoutConstraint {
@@ -99,6 +120,13 @@ public extension Constrainable {
     @discardableResult
     func pinRightToLeft(of constrainable: Constrainable, withSpacing spacing: CGFloat) -> NSLayoutConstraint {
         let constraint = rightAnchor.constraint(equalTo: constrainable.leftAnchor, constant: spacing)
+        constraint.isActive = true
+        return constraint
+    }
+
+    @discardableResult
+    func pinRightToLeft(of constrainable: Constrainable, withInset inset: CGFloat) -> NSLayoutConstraint {
+        let constraint = rightAnchor.constraint(equalTo: constrainable.leftAnchor, constant: -inset)
         constraint.isActive = true
         return constraint
     }

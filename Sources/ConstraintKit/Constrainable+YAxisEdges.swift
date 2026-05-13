@@ -46,9 +46,21 @@ public extension Constrainable {
         constraint.isActive = true
         return constraint
     }
-    
+
+    @discardableResult func pinTopToBottom(of constrainable: Constrainable, withInset inset: CGFloat) -> NSLayoutConstraint {
+        let constraint = topAnchor.constraint(equalTo: constrainable.bottomAnchor, constant: inset)
+        constraint.isActive = true
+        return constraint
+    }
+
     @discardableResult func pinBottomToTop(of constrainable: Constrainable, withSpacing spacing: CGFloat) -> NSLayoutConstraint {
         let constraint = bottomAnchor.constraint(equalTo: constrainable.topAnchor, constant: spacing)
+        constraint.isActive = true
+        return constraint
+    }
+
+    @discardableResult func pinBottomToTop(of constrainable: Constrainable, withInset inset: CGFloat) -> NSLayoutConstraint {
+        let constraint = bottomAnchor.constraint(equalTo: constrainable.topAnchor, constant: -inset)
         constraint.isActive = true
         return constraint
     }
