@@ -12,18 +12,21 @@ public extension Constrainable {
     
     // MARK: Height
     
-    @discardableResult func constrainHeight(equalToConstant constant: CGFloat) -> NSLayoutConstraint {
+    @discardableResult
+    func constrainHeight(equalToConstant constant: CGFloat) -> NSLayoutConstraint {
         let constraint = heightAnchor.constraint(equalToConstant: constant)
         constraint.isActive = true
         return constraint
     }
     
-    @discardableResult func constrainHeightToSuperview(multiplier: CGFloat = 1, constant: CGFloat = 0) -> NSLayoutConstraint {
+    @discardableResult
+    func constrainHeightToSuperview(multiplier: CGFloat = 1, constant: CGFloat = 0) -> NSLayoutConstraint {
         let constraintToConstrainable: Constrainable = getConstrainable(for: nil)
         return constrainHeight(toConstrainable: constraintToConstrainable, multiplier: multiplier, constant: constant)
     }
     
-    @discardableResult func constrainHeight(toConstrainable constrainable: Constrainable, multiplier: CGFloat = 1, constant: CGFloat = 0) -> NSLayoutConstraint {
+    @discardableResult
+    func constrainHeight(toConstrainable constrainable: Constrainable, multiplier: CGFloat = 1, constant: CGFloat = 0) -> NSLayoutConstraint {
         
         let constraint: NSLayoutConstraint
         let constraintToConstrainable: Constrainable = getConstrainable(for: constrainable)
@@ -35,13 +38,15 @@ public extension Constrainable {
         
     }
     
-    @discardableResult func constrainHeight(greaterThanEqualToConstant constant: CGFloat) -> NSLayoutConstraint {
+    @discardableResult
+    func constrainHeight(greaterThanEqualToConstant constant: CGFloat) -> NSLayoutConstraint {
         let constraint = heightAnchor.constraint(greaterThanOrEqualToConstant: constant)
         constraint.isActive = true
         return constraint
     }
     
-    @discardableResult func constrainHeight(lessThanEqualToConstant constant: CGFloat) -> NSLayoutConstraint {
+    @discardableResult
+    func constrainHeight(lessThanEqualToConstant constant: CGFloat) -> NSLayoutConstraint {
         let constraint = heightAnchor.constraint(lessThanOrEqualToConstant: constant)
         constraint.isActive = true
         return constraint
@@ -49,18 +54,21 @@ public extension Constrainable {
     
     // MARK: Width
     
-    @discardableResult func constrainWidth(equalToConstant constant: CGFloat) -> NSLayoutConstraint {
+    @discardableResult
+    func constrainWidth(equalToConstant constant: CGFloat) -> NSLayoutConstraint {
         let constraint = widthAnchor.constraint(equalToConstant: constant)
         constraint.isActive = true
         return constraint
     }
     
-    @discardableResult func constrainWidthToSuperview(multiplier: CGFloat = 1, constant: CGFloat = 0) -> NSLayoutConstraint {
+    @discardableResult
+    func constrainWidthToSuperview(multiplier: CGFloat = 1, constant: CGFloat = 0) -> NSLayoutConstraint {
         let constraintToConstrainable: Constrainable = getConstrainable(for: nil)
         return constrainWidth(toConstrainable: constraintToConstrainable, multiplier: multiplier, constant: constant)
     }
     
-    @discardableResult func constrainWidth(toConstrainable constrainable: Constrainable, multiplier: CGFloat = 1, constant: CGFloat = 0) -> NSLayoutConstraint {
+    @discardableResult
+    func constrainWidth(toConstrainable constrainable: Constrainable, multiplier: CGFloat = 1, constant: CGFloat = 0) -> NSLayoutConstraint {
         
         let constraint: NSLayoutConstraint
         let constraintToConstrainable: Constrainable = getConstrainable(for: constrainable)
@@ -72,13 +80,15 @@ public extension Constrainable {
         
     }
     
-    @discardableResult func constrainWidth(greaterThanEqualToConstant constant: CGFloat) -> NSLayoutConstraint {
+    @discardableResult
+    func constrainWidth(greaterThanEqualToConstant constant: CGFloat) -> NSLayoutConstraint {
         let constraint = widthAnchor.constraint(greaterThanOrEqualToConstant: constant)
         constraint.isActive = true
         return constraint
     }
     
-    @discardableResult func constrainWidth(lessThanEqualToConstant constant: CGFloat) -> NSLayoutConstraint {
+    @discardableResult
+    func constrainWidth(lessThanEqualToConstant constant: CGFloat) -> NSLayoutConstraint {
         let constraint = widthAnchor.constraint(lessThanOrEqualToConstant: constant)
         constraint.isActive = true
         return constraint
@@ -89,7 +99,8 @@ public extension Constrainable {
     /// Sets aspect ratio of the view
     /// - Parameter ratio: ratio in width / height
     /// - Returns: The constraint created
-    @discardableResult func setAspectRatio(to ratio: CGFloat) -> NSLayoutConstraint {
+    @discardableResult
+    func setAspectRatio(to ratio: CGFloat) -> NSLayoutConstraint {
         let constraint = widthAnchor.constraint(equalTo: heightAnchor, multiplier: ratio)
         constraint.isActive = true
         return constraint

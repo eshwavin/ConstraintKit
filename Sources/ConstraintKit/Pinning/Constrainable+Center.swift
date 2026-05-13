@@ -10,7 +10,8 @@ import UIKit
 // MARK: - Center
 public extension Constrainable {
     
-    @discardableResult func centerX(to constrainable: Constrainable? = nil, withOffset offset: CGFloat = 0) -> NSLayoutConstraint {
+    @discardableResult
+    func centerX(to constrainable: Constrainable? = nil, withOffset offset: CGFloat = 0) -> NSLayoutConstraint {
         
         let constraint: NSLayoutConstraint
         let constraintToConstrainable: Constrainable = getConstrainable(for: constrainable)
@@ -22,7 +23,8 @@ public extension Constrainable {
         
     }
     
-    @discardableResult func centerY(to constrainable: Constrainable? = nil, withOffset offset: CGFloat = 0) -> NSLayoutConstraint {
+    @discardableResult
+    func centerY(to constrainable: Constrainable? = nil, withOffset offset: CGFloat = 0) -> NSLayoutConstraint {
         
         let constraint: NSLayoutConstraint
         let constraintToConstrainable: Constrainable = getConstrainable(for: constrainable)
@@ -34,7 +36,8 @@ public extension Constrainable {
         
     }
     
-    @discardableResult func center(to view: Constrainable? = nil, withOffset offset: Offset = .zero) -> [String: NSLayoutConstraint] {
+    @discardableResult
+    func center(to view: Constrainable? = nil, withOffset offset: Offset = .zero) -> [String: NSLayoutConstraint] {
         let centerXConstraint = centerX(to: view, withOffset: offset.x)
         let centerYConstraint = centerY(to: view, withOffset: offset.y)
 

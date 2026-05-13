@@ -9,7 +9,8 @@ import UIKit
 
 // MARK: - All Edges
 public extension Constrainable {
-    @discardableResult func pin(constrainableEdges: [ConstrainableEdge], to safeAreaConstrainable: SafeAreaConstrainable? = nil) -> [String: NSLayoutConstraint] {
+    @discardableResult
+    func pin(constrainableEdges: [ConstrainableEdge], to safeAreaConstrainable: SafeAreaConstrainable? = nil) -> [String: NSLayoutConstraint] {
         var edges: [Edge] = []
         var safeAreaEdges: [SafeAreaEdge] = []
         
@@ -31,7 +32,8 @@ public extension Constrainable {
         
     }
     
-    @discardableResult func pin(constrainableEdges: ConstrainableEdge..., to safeAreaConstrainable: SafeAreaConstrainable? = nil) -> [String: NSLayoutConstraint] {
+    @discardableResult
+    func pin(constrainableEdges: ConstrainableEdge..., to safeAreaConstrainable: SafeAreaConstrainable? = nil) -> [String: NSLayoutConstraint] {
         return pin(constrainableEdges: constrainableEdges, to: safeAreaConstrainable)
     }
 }
@@ -39,11 +41,13 @@ public extension Constrainable {
 // MARK: - Safe Area Edges
 public extension Constrainable {
     
-    @discardableResult func pin(safeAreaEdges: SafeAreaEdge..., to safeAreaConstrainable: SafeAreaConstrainable? = nil) -> [String: NSLayoutConstraint] {
+    @discardableResult
+    func pin(safeAreaEdges: SafeAreaEdge..., to safeAreaConstrainable: SafeAreaConstrainable? = nil) -> [String: NSLayoutConstraint] {
         return pin(safeAreaEdges: safeAreaEdges, to: safeAreaConstrainable)
     }
     
-    @discardableResult func pin(safeAreaEdges: [SafeAreaEdge], to safeAreaConstrainable: SafeAreaConstrainable? = nil) -> [String: NSLayoutConstraint] {
+    @discardableResult
+    func pin(safeAreaEdges: [SafeAreaEdge], to safeAreaConstrainable: SafeAreaConstrainable? = nil) -> [String: NSLayoutConstraint] {
         var constraints = [String: NSLayoutConstraint]()
         let constraintToConstrainable: SafeAreaConstrainable = getConstrainable(for: safeAreaConstrainable)
         
@@ -126,11 +130,13 @@ public extension Constrainable {
 // MARK: - Non-Safe Area Edges
 public extension Constrainable {
     
-    @discardableResult func pin(edges: Edge..., to constrainable: Constrainable? = nil) -> [String: NSLayoutConstraint] {
+    @discardableResult
+    func pin(edges: Edge..., to constrainable: Constrainable? = nil) -> [String: NSLayoutConstraint] {
         return pin(edges: edges, to: constrainable)
     }
     
-    @discardableResult func pin(edges: [Edge], to constrainable: Constrainable? = nil) -> [String: NSLayoutConstraint] {
+    @discardableResult
+    func pin(edges: [Edge], to constrainable: Constrainable? = nil) -> [String: NSLayoutConstraint] {
         
         var constraints = [String: NSLayoutConstraint]()
         let constraintToConstrainable: Constrainable = getConstrainable(for: constrainable)
@@ -224,11 +230,13 @@ public extension Constrainable {
 // MARK: - All 4 Edges
 public extension Constrainable {
     
-    @discardableResult func pinAllEdgesSafely(to view: SafeAreaConstrainable? = nil, withInset inset: CGFloat = 0) -> [String: NSLayoutConstraint] {
+    @discardableResult
+    func pinAllEdgesSafely(to view: SafeAreaConstrainable? = nil, withInset inset: CGFloat = 0) -> [String: NSLayoutConstraint] {
         return pin(safeAreaEdges: .safeAreaTop(spacing: inset), .safeAreaLeading(spacing: inset), .safeAreaTrailing(spacing: -inset), .safeAreaBottom(spacing: -inset), to: view)
     }
 
-    @discardableResult func pinAllEdges(to view: Constrainable? = nil, withInset inset: CGFloat = 0) -> [String: NSLayoutConstraint] {
+    @discardableResult
+    func pinAllEdges(to view: Constrainable? = nil, withInset inset: CGFloat = 0) -> [String: NSLayoutConstraint] {
         return pin(edges: .top(spacing: inset), .leading(spacing: inset), .trailing(spacing: -inset), .bottom(spacing: -inset), to: view)
     }
     

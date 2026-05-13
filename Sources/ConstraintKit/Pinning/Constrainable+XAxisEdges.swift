@@ -16,7 +16,7 @@ public extension Constrainable {
         return pinEdge(safeAreaEdge, to: view)
     }
     
-    @discardableResult 
+    @discardableResult
     func pinLeading(to constrainable: Constrainable? = nil, withSpacing spacing: CGFloat) -> NSLayoutConstraint {
         let edge: Edge = .leading(spacing: spacing)
         return pinEdge(edge, to: constrainable)
@@ -33,13 +33,13 @@ public extension Constrainable {
 // MARK: - Trailing + Right
 public extension Constrainable {
     
-    @discardableResult 
+    @discardableResult
     func pinTrailingToSafeArea(of view: SafeAreaConstrainable? = nil, withSpacing spacing: CGFloat) -> NSLayoutConstraint {
         let safeAreaEdge: SafeAreaEdge = .safeAreaTrailing(spacing: spacing)
         return pinEdge(safeAreaEdge, to: view)
     }
     
-    @discardableResult 
+    @discardableResult
     func pinTrailing(to constrainable: Constrainable? = nil, withSpacing spacing: CGFloat) -> NSLayoutConstraint {
         let edge: Edge = .trailing(spacing: spacing)
         return pinEdge(edge, to: constrainable)
@@ -110,7 +110,7 @@ public extension Constrainable {
         return constraint
     }
     
-    @discardableResult 
+    @discardableResult
     func pinTrailingToCenterX(of constrainable: Constrainable, withOffset offset: CGFloat) -> NSLayoutConstraint {
         let constraint = trailingAnchor.constraint(equalTo: constrainable.centerXAnchor, constant: offset)
         constraint.isActive = true

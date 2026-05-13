@@ -10,15 +10,16 @@ import UIKit
 // MARK: - Top
 public extension Constrainable {
     
-    @discardableResult func pinTopToSafeArea(of view: SafeAreaConstrainable? = nil, withSpacing spacing: CGFloat) -> NSLayoutConstraint {
+    @discardableResult
+    func pinTopToSafeArea(of view: SafeAreaConstrainable? = nil, withSpacing spacing: CGFloat) -> NSLayoutConstraint {
         let safeAreaEdge: SafeAreaEdge = .safeAreaTop(spacing: spacing)
         return pinEdge(safeAreaEdge, to: view)
     }
     
-    @discardableResult func pinTop(to constrainable: Constrainable? = nil, withSpacing spacing: CGFloat) -> NSLayoutConstraint {
+    @discardableResult
+    func pinTop(to constrainable: Constrainable? = nil, withSpacing spacing: CGFloat) -> NSLayoutConstraint {
         let edge: Edge = .top(spacing: spacing)
         return pinEdge(edge, to: constrainable)
-        
     }
     
 }
@@ -26,12 +27,14 @@ public extension Constrainable {
 // MARK: - Bottom
 public extension Constrainable {
     
-    @discardableResult func pinBottomToSafeArea(of view: SafeAreaConstrainable? = nil, withSpacing spacing: CGFloat) -> NSLayoutConstraint {
+    @discardableResult
+    func pinBottomToSafeArea(of view: SafeAreaConstrainable? = nil, withSpacing spacing: CGFloat) -> NSLayoutConstraint {
         let safeAreaEdge: SafeAreaEdge = .safeAreaBottom(spacing: spacing)
         return pinEdge(safeAreaEdge, to: view)
     }
     
-    @discardableResult func pinBottom(to constrainable: Constrainable? = nil, withSpacing spacing: CGFloat) -> NSLayoutConstraint {
+    @discardableResult
+    func pinBottom(to constrainable: Constrainable? = nil, withSpacing spacing: CGFloat) -> NSLayoutConstraint {
         let edge: Edge = .bottom(spacing: spacing)
         return pinEdge(edge, to: constrainable)
     }
@@ -41,37 +44,43 @@ public extension Constrainable {
 // MARK: - Other Vertical
 public extension Constrainable {
     
-    @discardableResult func pinTopToBottom(of constrainable: Constrainable, withSpacing spacing: CGFloat) -> NSLayoutConstraint {
+    @discardableResult
+    func pinTopToBottom(of constrainable: Constrainable, withSpacing spacing: CGFloat) -> NSLayoutConstraint {
         let constraint = topAnchor.constraint(equalTo: constrainable.bottomAnchor, constant: spacing)
         constraint.isActive = true
         return constraint
     }
 
-    @discardableResult func pinTopToBottom(of constrainable: Constrainable, withInset inset: CGFloat) -> NSLayoutConstraint {
+    @discardableResult
+    func pinTopToBottom(of constrainable: Constrainable, withInset inset: CGFloat) -> NSLayoutConstraint {
         let constraint = topAnchor.constraint(equalTo: constrainable.bottomAnchor, constant: inset)
         constraint.isActive = true
         return constraint
     }
 
-    @discardableResult func pinBottomToTop(of constrainable: Constrainable, withSpacing spacing: CGFloat) -> NSLayoutConstraint {
+    @discardableResult
+    func pinBottomToTop(of constrainable: Constrainable, withSpacing spacing: CGFloat) -> NSLayoutConstraint {
         let constraint = bottomAnchor.constraint(equalTo: constrainable.topAnchor, constant: spacing)
         constraint.isActive = true
         return constraint
     }
 
-    @discardableResult func pinBottomToTop(of constrainable: Constrainable, withInset inset: CGFloat) -> NSLayoutConstraint {
+    @discardableResult
+    func pinBottomToTop(of constrainable: Constrainable, withInset inset: CGFloat) -> NSLayoutConstraint {
         let constraint = bottomAnchor.constraint(equalTo: constrainable.topAnchor, constant: -inset)
         constraint.isActive = true
         return constraint
     }
     
-    @discardableResult func pinTopToCenterY(of constrainable: Constrainable, withOffset offset: CGFloat) -> NSLayoutConstraint {
+    @discardableResult
+    func pinTopToCenterY(of constrainable: Constrainable, withOffset offset: CGFloat) -> NSLayoutConstraint {
         let constraint = topAnchor.constraint(equalTo: constrainable.centerYAnchor, constant: offset)
         constraint.isActive = true
         return constraint
     }
     
-    @discardableResult func pinBottomToCenterY(of constrainable: Constrainable, withOffset offset: CGFloat) -> NSLayoutConstraint {
+    @discardableResult
+    func pinBottomToCenterY(of constrainable: Constrainable, withOffset offset: CGFloat) -> NSLayoutConstraint {
         let constraint = bottomAnchor.constraint(equalTo: constrainable.centerYAnchor, constant: offset)
         constraint.isActive = true
         return constraint
