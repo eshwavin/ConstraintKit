@@ -1,136 +1,189 @@
 # ConstraintKit
 
-ConstraintKit is a lightweight and flexible library designed to simplify adding Auto Layout constraints in UIKit with a declarative approach. By providing a set of extensions for UIView and UILayoutGuide, ConstraintKit streamlines the process of creating and managing constraints, making your layout code cleaner, more readable, and closer to natural language.  
+ConstraintKit is a lightweight Swift package that wraps UIKit's Auto Layout API with a fluent, declarative interface. It provides extensions on both `UIView` and `UILayoutGuide` through the `Constrainable` protocol, keeping layout code readable and close to natural language.
 
-## Features
+## Requirements
 
-- **Simplified Constraint Creation**: Easily create constraints for pinning edges of views to other views or safe area layouts.
-- **Flexible Edge Support**: Support for both safe area edges and standard edges, with custom spacing.
-- **Readable Code**: Enhances the readability of layout code by abstracting the complexity of NSLayoutConstraint.
-- **Support for Leading, Trailing, Top, and Bottom Edges**: Easily pin views using common layout patterns.
-- **Abstraction of UIView and UILayoutGuide**: Both UIView and UILayoutGuide are abstracted using the `Constrainable` protocol, allowing for a unified approach to managing constraints across different layout elements.
-
+- iOS 14+
+- Swift 5.10+
 
 ## Installation
 
-To integrate ConstraintKit into your project using Swift Package Manager, add the following dependency to your `Package.swift` file:
+### Swift Package Manager
+
+Add the dependency to your `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/eshwavin/ConstraintKit.git", from: "0.2.0")
+    .package(url: "https://github.com/eshwavin/ConstraintKit.git", from: "1.0.0")
 ]
 ```
 
-Alternatively, you can add it to your Xcode project:
+Or add it in Xcode via **File → Add Package Dependencies** and enter the repository URL.
 
-1. Open your project in Xcode.
-2. Select your project in the Project Navigator.
-3. Navigate to the **Package Dependencies** tab.
-4. Click the **"+"** button to add a new package.
-5. Enter the repository URL: `https://github.com/yourusername/ConstraintKit.git`.
-6. Select the version range you want to use and click **Add Package**.
+## Setup
+
+Call `prepareForAutoLayout()` on a view before adding any constraints to it. This sets `translatesAutoresizingMaskIntoConstraints` to `false` and returns `self` for chaining.
+
+```swift
+let childView = UIView().prepareForAutoLayout()
+parentView.addSubview(childView)
+```
+
+> ConstraintKit does **not** call `prepareForAutoLayout()` on your behalf, so you keep full control over which views participate in Auto Layout.
 
 ## Usage
 
-### Importing
+### Pinning to a superview (default target)
 
-Make sure to import ConstraintKit module in your files where you want to use it.
+When no target is provided, methods fall back to the receiver's superview. A `fatalError` is raised if the view has no superview at call time.
 
 ```swift
-import ConstraintKit
+childView.pinTop(withSpacing: 8)
+childView.pinLeading(withSpacing: 16)
+childView.pinTrailing(withSpacing: -16)
+childView.pinBottom(withSpacing: -8)
 ```
 
-### Important to Note
-
-All the functions that add constraints return the activated constraints in the form of a `Dictionary`. The keys are the `rawValues` of the `Egde` or `SafeAreaEdge` and the values are the **activated** `NSLayoutConstraint`.
-
-### Pinning Edges
+### Pinning to an explicit target
 
 ```swift
-let containerView = UIView()
-let childView = UIView()
-
-containerView.addSubview(childView)
-
-// Pin childView to the leading edge of containerView
 childView.pinLeading(to: containerView, withSpacing: 16)
-
-// Pin childView to the top edge of containerView
 childView.pinTop(to: containerView, withSpacing: 8)
-
-// Pin childView to the bottom edge of containerView with safe area consideration
-childView.pinBottomToSafeArea(of: containerView, withSpacing: 20)
 ```
 
-### Adding Multiple Constraints Together
+### Pinning all edges at once
+
+`withInset` always treats a positive value as inward — trailing and bottom constants are negated internally.
 
 ```swift
-// Pin all edges to superview
+// Pin flush to superview
 childView.pinAllEdges()
 
-// When the view to constrain to is not provided, it automatically defaults to the superview. 
-childView.pinAllEdges(to: containerView)
+// Pin with a uniform inset
+childView.pinAllEdges(to: containerView, withInset: 16)
 
-// Pin all edges to the safe area of superview
-childView.pinAllEdgesSafely()
-
-// Pin multiple edges to superview
-childView.pin(edges: .leading(spacing: 5), .trailing(spacing: 5))
+// Pin to the safe area with a uniform inset
+childView.pinAllEdgesSafely(to: containerView, withInset: 16)
 ```
 
-### Centering 
+### Pinning multiple edges with individual spacing
 
-``` swift
-// center in X direction to superview
+```swift
+childView.pin(edges: .top(spacing: 8), .leading(spacing: 16), .trailing(spacing: -16), .bottom(spacing: -8), to: containerView)
+```
+
+### Safe area pinning
+
+```swift
+childView.pinTopToSafeArea(of: containerView, withSpacing: 8)
+childView.pinBottomToSafeArea(of: containerView, withSpacing: -8)
+childView.pinLeadingToSafeArea(of: containerView, withSpacing: 16)
+childView.pinTrailingToSafeArea(of: containerView, withSpacing: -16)
+
+// Or pin multiple safe-area edges at once
+childView.pin(safeAreaEdges: .safeAreaTop(spacing: 8), .safeAreaLeading(spacing: 16), to: containerView)
+```
+
+### Cross-edge pinning
+
+Use `withSpacing` for a raw Auto Layout constant, or `withInset` where a positive value always means a gap.
+
+```swift
+// Place B directly below A with a gap
+viewB.pinTopToBottom(of: viewA, withInset: 8)
+
+// Place B to the right of A with a gap
+viewB.pinLeadingToTrailing(of: viewA, withInset: 8)
+
+// Place B above A with a gap
+viewB.pinBottomToTop(of: viewA, withInset: 8)
+
+// Place B to the left of A with a gap
+viewB.pinTrailingToLeading(of: viewA, withInset: 8)
+```
+
+### Inequality constraints
+
+```swift
+childView.pin(edges: .greaterThanTop(spacing: 8), .lessThanBottom(spacing: -8), to: containerView)
+```
+
+### Centering
+
+```swift
+// Center in superview
 someView.centerX()
-// center in Y direction to superview
 someView.centerY()
+someView.center()
 
-// center in both X and Y direction to superview
-otherView.center()
+// Center relative to another view
+someView.center(to: otherView)
 
-// center to some other view with offset
-someView.center(to: otherView, withOffset: 10)
+// Center with an offset
+someView.center(to: otherView, withOffset: Offset(x: 10, y: -5))
 ```
 
-### Use the same function for UIViews and UILayoutGuides
+### Dimensions
 
 ```swift
-someView.pin(edges: .top(spacing: 0), .bottom(spacing: 5))
+someView.constrainWidth(equalToConstant: 100)
+someView.constrainHeight(equalToConstant: 50)
 
-someLayoutGuide.pin(edges: .top(spacing: 0), .bottom(spacing: 5))
+someView.constrainWidth(greaterThanEqualToConstant: 80)
+someView.constrainHeight(lessThanEqualToConstant: 120)
+
+someView.constrainWidth(toConstrainable: otherView, multiplier: 0.5)
+someView.constrainWidthToSuperview(multiplier: 0.8)
+
+someView.setAspectRatio(to: 16 / 9)
 ```
 
-### More advanced usage
+### Accessing returned constraints
+
+Every `pin` method returns the activated `NSLayoutConstraint` or a `[String: NSLayoutConstraint]` dictionary. Use `Edge.Keys` or `SafeAreaEdge.Keys` to look up values without constructing an enum case.
 
 ```swift
-// Pinning a view to the top and at least some distance from the leading of another view
-someView.pin(edges: .top(spacing: 5), .greaterThanLeading(spacing: 5), to: otherView))
-```
+let constraints = childView.pin(edges: .top(spacing: 8), .leading(spacing: 16), to: containerView)
 
-### Accessing the activated constraints
+let topConstraint = constraints[Edge.Keys.top]
+let leadingConstraint = constraints[Edge.Keys.leading]
+```
 
 ```swift
-let constraints = someView.pin(egdes: .top(spacing: 5), .leading(spacing: 5))
+let safeConstraints = childView.pin(safeAreaEdges: .safeAreaTop(spacing: 8), to: containerView)
 
-let topConstraint = constraints[Edge.top.rawValue]
+let topConstraint = safeConstraints[SafeAreaEdge.Keys.safeAreaTop]
 ```
 
-### You cannot use SafeAreaEdges for UILayoutGuides
+```swift
+let centerConstraints = someView.center(to: containerView)
 
-Since a `UILayoutGuide` does not have a safe area layout, you cannot use the functions that are designed to constrain to `safeAreaLayout`
+let centerXConstraint = centerConstraints[CenterConstraintKeys.centerX]
+```
 
+### UIView and UILayoutGuide share the same API
+
+`UILayoutGuide` conforms to `Constrainable` and supports all non-safe-area methods.
+
+```swift
+someView.pin(edges: .top(spacing: 0), .bottom(spacing: -8), to: containerView)
+someLayoutGuide.pin(edges: .top(spacing: 0), .bottom(spacing: -8), to: containerView)
+```
+
+### Adding views and layout guides uniformly
+
+```swift
+containerView.addConstrainable(someView)
+containerView.addConstrainable(someLayoutGuide)
+```
 
 ## Protocols
 
-### Constrainable
-This protocol provides the basic functionalities required for objects that can have constraints applied to them.
-
-### SafeAreaConstrainable
-This protocol extends the Constrainable protocol for objects that can reference their safe area layout guides.
-
-### Edge and SafeAreaEdge
-These enums represent the various edges that can be used when pinning views. 
+| Protocol | Conformers | Description |
+|---|---|---|
+| `Constrainable` | `UIView`, `UILayoutGuide` | Exposes layout anchors and a fallback `container` view |
+| `SafeAreaConstrainable` | `UIView` | Extends `Constrainable` with `safeAreaLayoutGuide` |
 
 ## License
 
@@ -138,4 +191,4 @@ This project is licensed under the MIT License. See the LICENSE file for more in
 
 ## Contribution
 
-Contributions are welcome! Feel free to open issues, submit pull requests for enhancements and bug fixes, or improve documentation.
+Contributions are welcome! Feel free to open issues or submit pull requests for enhancements, bug fixes, or documentation improvements.
