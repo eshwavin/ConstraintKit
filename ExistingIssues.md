@@ -42,11 +42,9 @@ Added `withOffset: Offset = .zero` parameter to `center(to:)`. Introduced a new 
 
 ---
 
-## 8. No tests
+## ~~8. No tests~~ ✅ Resolved
 
-**File:** `Tests/ConstraintKitTests/ConstraintKitTests.swift`
-
-The test suite is completely empty. For a library whose sole purpose is producing correct `NSLayoutConstraint` values, there is no coverage of spacing math, sign conventions, the `fatalError` path, or the force cast.
+Added iOS 14 platform declaration to `Package.swift`. Wrote 8 test files covering the full public API: `PrepareForAutoLayoutTests`, `FallbackTests`, `SameEdgeTests`, `CrossEdgeTests`, `SafeAreaTests`, `PinAllEdgesTests`, `CenterTests`, and `DimensionsTests`.
 
 ---
 
