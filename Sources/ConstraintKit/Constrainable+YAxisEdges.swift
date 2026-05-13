@@ -10,7 +10,7 @@ import UIKit
 // MARK: - Top
 public extension Constrainable {
     
-    @discardableResult func pinTopToSafeArea(of view: UIView? = nil, withSpacing spacing: CGFloat) -> NSLayoutConstraint {
+    @discardableResult func pinTopToSafeArea(of view: SafeAreaConstrainable? = nil, withSpacing spacing: CGFloat) -> NSLayoutConstraint {
         let safeAreaEdge: SafeAreaEdge = .safeAreaTop(spacing: spacing)
         return pinEdge(safeAreaEdge, to: view)
     }
@@ -26,7 +26,7 @@ public extension Constrainable {
 // MARK: - Bottom
 public extension Constrainable {
     
-    @discardableResult func pinBottomToSafeArea(of view: UIView? = nil, withSpacing spacing: CGFloat) -> NSLayoutConstraint {
+    @discardableResult func pinBottomToSafeArea(of view: SafeAreaConstrainable? = nil, withSpacing spacing: CGFloat) -> NSLayoutConstraint {
         let safeAreaEdge: SafeAreaEdge = .safeAreaBottom(spacing: spacing)
         return pinEdge(safeAreaEdge, to: view)
     }

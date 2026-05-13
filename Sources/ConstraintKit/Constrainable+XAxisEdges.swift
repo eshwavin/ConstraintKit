@@ -11,7 +11,7 @@ import UIKit
 public extension Constrainable {
     
     @discardableResult
-    func pinLeadingToSafeArea(of view: UIView? = nil, withSpacing spacing: CGFloat) -> NSLayoutConstraint {
+    func pinLeadingToSafeArea(of view: SafeAreaConstrainable? = nil, withSpacing spacing: CGFloat) -> NSLayoutConstraint {
         let safeAreaEdge: SafeAreaEdge = .safeAreaLeading(spacing: spacing)
         return pinEdge(safeAreaEdge, to: view)
     }
@@ -34,7 +34,7 @@ public extension Constrainable {
 public extension Constrainable {
     
     @discardableResult 
-    func pinTrailingToSafeArea(of view: UIView? = nil, withSpacing spacing: CGFloat) -> NSLayoutConstraint {
+    func pinTrailingToSafeArea(of view: SafeAreaConstrainable? = nil, withSpacing spacing: CGFloat) -> NSLayoutConstraint {
         let safeAreaEdge: SafeAreaEdge = .safeAreaTrailing(spacing: spacing)
         return pinEdge(safeAreaEdge, to: view)
     }

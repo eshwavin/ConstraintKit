@@ -34,10 +34,10 @@ public extension Constrainable {
         
     }
     
-    @discardableResult func center(to view: Constrainable? = nil) -> [String: NSLayoutConstraint] {
-        let centerXConstraint = centerX(to: view)
-        let centerYConstraint = centerY(to: view)
-        
+    @discardableResult func center(to view: Constrainable? = nil, withOffset offset: Offset = .zero) -> [String: NSLayoutConstraint] {
+        let centerXConstraint = centerX(to: view, withOffset: offset.x)
+        let centerYConstraint = centerY(to: view, withOffset: offset.y)
+
         return [
             CenterConstraintKeys.centerX: centerXConstraint,
             CenterConstraintKeys.centerY: centerYConstraint

@@ -30,27 +30,23 @@ Added `withInset` overloads to all six cross-edge methods (`pinTopToBottom`, `pi
 
 ---
 
-## 6. No tests
+## ~~6. Safe-area individual helpers accept `UIView?` instead of `SafeAreaConstrainable?`~~ ✅ Resolved
+
+Changed the `of:` parameter type from `UIView?` to `SafeAreaConstrainable?` in `pinLeadingToSafeArea`, `pinTrailingToSafeArea`, `pinTopToSafeArea`, and `pinBottomToSafeArea`.
+
+---
+
+## ~~7. `center(to:)` does not support an offset~~ ✅ Resolved
+
+Added `withOffset: Offset = .zero` parameter to `center(to:)`. Introduced a new `Offset` struct in `Offset.swift` (importing `CoreGraphics`) with `x`, `y`, and a `.zero` static.
+
+---
+
+## 8. No tests
 
 **File:** `Tests/ConstraintKitTests/ConstraintKitTests.swift`
 
 The test suite is completely empty. For a library whose sole purpose is producing correct `NSLayoutConstraint` values, there is no coverage of spacing math, sign conventions, the `fatalError` path, or the force cast.
-
----
-
-## 7. Safe-area individual helpers accept `UIView?` instead of `SafeAreaConstrainable?`
-
-**Files:** `Sources/ConstraintKit/Constrainable+XAxisEdges.swift:14`, `Constrainable+YAxisEdges.swift:13`
-
-`pinLeadingToSafeArea(of:)`, `pinTopToSafeArea(of:)`, and similar methods take `UIView?` rather than `SafeAreaConstrainable?`. This excludes custom types that conform to `SafeAreaConstrainable` and contradicts the abstraction the protocol hierarchy provides.
-
----
-
-## 8. `center(to:)` does not support an offset
-
-**File:** `Sources/ConstraintKit/Constrainable+Center.swift:41`
-
-`centerX(to:withOffset:)` and `centerY(to:withOffset:)` both accept an offset, but `center(to:)` does not. Centering with an offset requires two separate calls, making the combined method less useful than its parts.
 
 ---
 
