@@ -11,7 +11,7 @@ final class CenterTests: XCTestCase {
         parent = UIView()
         child = UIView()
         parent.addSubview(child)
-        child.prepareForAutoLayout()
+        child.preparedForAutoLayout()
     }
 
     // MARK: - centerX

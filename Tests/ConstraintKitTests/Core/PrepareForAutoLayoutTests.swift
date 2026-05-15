@@ -5,13 +5,13 @@ final class PrepareForAutoLayoutTests: XCTestCase {
 
     func testSetsTranslatesAutoresizingMaskIntoConstraintsToFalse() {
         let view = UIView()
-        view.prepareForAutoLayout()
+        view.preparedForAutoLayout()
         XCTAssertFalse(view.translatesAutoresizingMaskIntoConstraints)
     }
 
     func testReturnsSelf() {
         let view = UIView()
-        let result = view.prepareForAutoLayout()
+        let result = view.preparedForAutoLayout()
         XCTAssertTrue(result === view)
     }
 }

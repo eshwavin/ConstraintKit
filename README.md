@@ -23,14 +23,14 @@ Or add it in Xcode via **File → Add Package Dependencies** and enter the repos
 
 ## Setup
 
-Call `prepareForAutoLayout()` on a view before adding any constraints to it. This sets `translatesAutoresizingMaskIntoConstraints` to `false` and returns `self` for chaining.
+Call `preparedForAutoLayout()` on a view before adding any constraints to it. This sets `translatesAutoresizingMaskIntoConstraints` to `false` and returns `self` for chaining.
 
 ```swift
-let childView = UIView().prepareForAutoLayout()
+let childView = UIView().preparedForAutoLayout()
 parentView.addSubview(childView)
 ```
 
-> ConstraintKit does **not** call `prepareForAutoLayout()` on your behalf, so you keep full control over which views participate in Auto Layout.
+> ConstraintKit does **not** call `preparedForAutoLayout()` on your behalf, so you keep full control over which views participate in Auto Layout.
 
 ## Usage
 

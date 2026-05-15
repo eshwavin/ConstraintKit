@@ -14,7 +14,7 @@ final class CrossEdgeTests: XCTestCase {
         sibling = UIView()
         parent.addSubview(child)
         parent.addSubview(sibling)
-        child.prepareForAutoLayout()
+        child.preparedForAutoLayout()
     }
 
     // MARK: - Leading to Trailing
