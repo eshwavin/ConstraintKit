@@ -10,13 +10,13 @@ import UIKit
 internal extension Constrainable {
 
     @inlinable
-    func pinEdge(_ edge: Edge, to constrainable: Constrainable? = nil) -> NSLayoutConstraint {
-        return pin(edges: edge, to: constrainable)[edge.rawValue]!
+    func pinEdge(_ edge: Edge, to constrainable: Constrainable? = nil, shouldActivate: Bool = true) -> NSLayoutConstraint {
+        return pin(edges: edge, to: constrainable, shouldActivate: shouldActivate)[edge.rawValue]!
     }
 
     @inlinable
-    func pinEdge(_ safeAreaEdge: SafeAreaEdge, to safeAreaConstrainable: SafeAreaConstrainable? = nil) -> NSLayoutConstraint {
-        return pin(safeAreaEdges: safeAreaEdge, to: safeAreaConstrainable)[safeAreaEdge.rawValue]!
+    func pinEdge(_ safeAreaEdge: SafeAreaEdge, to safeAreaConstrainable: SafeAreaConstrainable? = nil, shouldActivate: Bool = true) -> NSLayoutConstraint {
+        return pin(safeAreaEdges: safeAreaEdge, to: safeAreaConstrainable, shouldActivate: shouldActivate)[safeAreaEdge.rawValue]!
     }
 
 }
