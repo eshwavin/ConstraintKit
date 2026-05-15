@@ -9,7 +9,7 @@ import UIKit
 
 public extension Dictionary where Key == String, Value == NSLayoutConstraint {
     /// Returns the constraint values as an array, discarding the string keys.
-    var asConstraints: [NSLayoutConstraint] {
+    var asConstraintsArray: [NSLayoutConstraint] {
         Array(values)
     }
 }

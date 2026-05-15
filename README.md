@@ -162,6 +162,38 @@ let centerConstraints = someView.center(to: containerView)
 let centerXConstraint = centerConstraints[CenterConstraintKeys.centerX]
 ```
 
+### Flattening a constraint dictionary
+
+Call `.asConstraintsArray` on any constraint dictionary to drop the string keys and get a plain `[NSLayoutConstraint]`.
+
+```swift
+let constraints = childView.pinAllEdges(to: containerView).asConstraintsArray
+```
+
+### Deferred activation
+
+Pass `shouldActivate: false` to create a constraint without activating it immediately, then activate it later. All methods default to `shouldActivate: true`.
+
+```swift
+let leading = childView.pinLeading(to: containerView, withSpacing: 16, shouldActivate: false)
+// ... activate when needed
+leading.isActive = true
+```
+
+A common pattern is to set up multiple constraint groups upfront and swap between them — for example when responding to trait changes:
+
+```swift
+let regularConstraints = childView.pinAllEdges(to: regularView, shouldActivate: false).asConstraintsArray
+let compactConstraints = childView.pinAllEdges(to: compactView, shouldActivate: false).asConstraintsArray
+
+override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+    super.traitCollectionDidChange(previousTraitCollection)
+    let isRegular = traitCollection.verticalSizeClass == .regular
+    NSLayoutConstraint.activate(isRegular ? regularConstraints : compactConstraints)
+    NSLayoutConstraint.deactivate(isRegular ? compactConstraints : regularConstraints)
+}
+```
+
 ### UIView and UILayoutGuide share the same API
 
 `UILayoutGuide` conforms to `Constrainable` and supports all non-safe-area methods.
